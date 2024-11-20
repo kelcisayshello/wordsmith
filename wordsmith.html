@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wordsmith - A Browser-Based Rich Text Editor.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="wordsmith">
+
+    <div class="title">
+      <h1>Wordsmith.</h1>
+      <p>A bare-bones, browser-based rich text editor.</p>
+    </div>
+
+    <div class="toolkit">
+      <button id="uppercase" class="tool-1 orange-bg">A</button>
+      <button id="lowercase" class="tool-2 orange-bg">a</button>
+      <button id="capitalize" class="tool-3 orange-bd">Aa</button>
+      <button id="strikethrough" class="tool-4 orange-bd">s</button>
+
+      <button id="bold" class="tool-5 orange-bd">B</button>
+      <button id="italics" class="tool-6 orange-bg">I</button>
+      <button id="colorpick" class="tool-7 orange-bd"><i class="fa-solid fa-droplet"></i></button>
+
+      <button id="increasefont" class="tool-8 blue-bg"><i class="fa-solid fa-plus"></i></button>
+      <button id="decreasefont" class="tool-9 blue-bg"><i class="fa-solid fa-minus"></i></button>
+
+      <select id="fontselector" class="tool-10 orange-bd">
+        <option value="0">Select a font.</option>
+        <option value="1">Google Sans</option>
+        <option value="2">Arial</option>
+        <option value="3">Times New Roman</option>
+        <option value="4">Monaco</option>
+      </select>
+
+      <button id="copy" class="tool-11 blue-bg"><i class="fa-solid fa-copy"></i></button>
+      <button id="trash" class="tool-12 blue-bd"><i class="fa-regular fa-trash-can"></i></button>
+    </div>
+
+    <div id="editor" contenteditable="true"></div>
+
+    <footer>Copyright © 2024 • <a href="https://github.com/kelcisayshello" target="_blank">Kelci Mensah</a>. All Rights
+      Reserved.</footer>
+  </div>
+
+</body>
+
+<script src="https://kit.fontawesome.com/c144c56cb2.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+
+</html>
