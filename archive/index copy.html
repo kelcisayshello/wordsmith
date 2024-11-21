@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wordsmith - A Browser-Based Rich Text Editor.</title>
+  <link rel="stylesheet" href="style.css" />
+
+<!-- ------------------------------- Favicon ------------------------------- -->
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Wordsmith." />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+
+<!-- ------------------------------ Quill.js ------------------------------- -->
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="wordsmith">
+
+    <div class="title">
+      <h1>Wordsmith.</h1>
+      <p>A bare-bones, browser-based rich text editor.</p>
+    </div>
+
+    <div class="toolkit">
+      <button title="Uppercase" id="uppercase" class="tool-1 orange-bg no-parameter-button">A</button>
+      <button title="Lowercase" id="lowercase" class="tool-2 orange-bg no-parameter-button">a</button>
+      <button title="Capitalize" id="capitalize" class="tool-3 orange-bd no-parameter-button">Aa</button>
+
+      <button title="Bold" id="bold" class="tool-4 orange-bd no-parameter-button">B</button>
+      <button title="Italics" id="italics" class="tool-5 orange-bg no-parameter-button"><i
+          class="fa-solid fa-italic"></i></button>
+      <button title="Underline" id="underline" class="tool-6 orange-bd no-parameter-button"><i
+          class="fa-solid fa-underline"></i></button>
+      <button title="Strikethrough" id="strikethrough" class="tool-7 orange-bd no-parameter-button"><i
+          class="fa-solid fa-strikethrough"></i></button>
+      <button title="Numerical List" id="numericallist" class="tool-8 orange-bg no-parameter-button"><i
+          class="fa-solid fa-list-ol"></i></button>
+      <button title="Bullet List" id="bulletlist" class="tool-9 orange-bg no-parameter-button"><i
+          class="fa-solid fa-list-ul"></i></button>
+      <button title="Hyperlink" id="createlink" class="tool-10 blue-bd parameter-button"><i
+          class="fa-solid fa-link"></i></button>
+      <button title="Remove Hyperlink" id="removelink" class="tool-11 blue-bd no-parameter-button"><i
+          class="fa-solid fa-link-slash"></i></button>
+      <button id="indent" class="tool-12 orange-bg no-parameter-button"><i class="fa-solid fa-indent"></i></button>
+      <button id="outdent" class="tool-13 orange-bg no-parameter-button"><i
+          class="fa-solid fa-indent fa-rotate-180"></i></button>
+
+      <button title="Increase Font Size" id="increasefont" class="tool-14 blue-bg no-parameter-button"><i class="fa-solid fa-plus"></i></button>
+      <button title="Decrease Font Size" id="decreasefont" class="tool-15 blue-bg no-parameter-button"><i class="fa-solid fa-minus"></i></button>
+      <button id="colorpick" class="tool-16 orange-bd parameter-button"><i class="fa-solid fa-droplet"></i></button>
+      <select id="fontselector" class="tool-17 orange-bd">
+        <option value="0">Select a font.</option>
+      </select>
+      <button title="Copy" id="copy" class="tool-18 blue-bd no-parameter-button"><i class="fa-solid fa-copy"></i></button>
+      <button title="Undo" id="undo" class="tool-19 orange-bd no-parameter-button"><i class="fa-solid fa-rotate-left"></i></button>
+      <button title="Redo" id="redo" class="tool-20 orange-bd no-parameter-button"><i
+          class="fa-solid fa-rotate-left fa-flip-horizontal"></i></button>
+      <button title="Trash" id="trash" class="tool-21 blue-bg no-parameter-button"><i class="fa-regular fa-trash-can"></i></button>
+    </div>
+
+    <div id="editor" contenteditable="true"></div>
+
+    <footer>Copyright © 2024 • <a href="https://github.com/kelcisayshello" target="_blank">Kelci Mensah</a>. All Rights
+      Reserved.</footer>
+  </div>
+
+</body>
+
+<script src="https://kit.fontawesome.com/c144c56cb2.js" crossorigin="anonymous"></script>
+<!-- <script src="script.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.js"></script>
+<script src="quill.js"></script>
+
+</html>

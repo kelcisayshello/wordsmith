@@ -6,12 +6,17 @@
   <title>Wordsmith - A Browser-Based Rich Text Editor.</title>
   <link rel="stylesheet" href="style.css" />
 
+<!-- ------------------------------- Favicon ------------------------------- -->
   <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
   <link rel="shortcut icon" href="/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Wordsmith." />
   <link rel="manifest" href="/favicon/site.webmanifest" />
+
+  <!-- ----------------------------- Lexical.js ------------------------------ -->
+  <script src="https://cdn.jsdelivr.net/npm/lexical@0.20.0/Lexical.min.js"></script>
+
 </head>
 
 <body>
@@ -23,12 +28,12 @@
       <p>A bare-bones, browser-based rich text editor.</p>
     </div>
 
-    <div class="toolkit">
+    <div class="toolkit" id="toolkit">
       <button title="Uppercase" id="uppercase" class="tool-1 orange-bg no-parameter-button">A</button>
       <button title="Lowercase" id="lowercase" class="tool-2 orange-bg no-parameter-button">a</button>
       <button title="Capitalize" id="capitalize" class="tool-3 orange-bd no-parameter-button">Aa</button>
 
-      <button title="Bold" id="bold" class="tool-4 orange-bd no-parameter-button">B</button>
+      <button title="Bold" id="bold" class="ql-bold tool-4 orange-bd no-parameter-button">B</button>
       <button title="Italics" id="italics" class="tool-5 orange-bg no-parameter-button"><i
           class="fa-solid fa-italic"></i></button>
       <button title="Underline" id="underline" class="tool-6 orange-bd no-parameter-button"><i
@@ -69,6 +74,6 @@
 </body>
 
 <script src="https://kit.fontawesome.com/c144c56cb2.js" crossorigin="anonymous"></script>
-<script src="script.js"></script>
+<script src="lexical.js"></script>
 
 </html>
