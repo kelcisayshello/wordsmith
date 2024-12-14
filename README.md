@@ -1,6 +1,9 @@
 # Wordsmith
 README.md details coming soon
 
+### File Hierarchy
+`Main > App > Wordsmith (Form) > Lexical (RichTextEditor)`
+
 ### To Do List
 * heading formats (h1 - h6)
 * bold

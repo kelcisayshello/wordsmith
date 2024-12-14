@@ -49,9 +49,9 @@ body {
 
   display: grid;
   grid-template-columns: repeat(3, 1fr) 0.6fr repeat(10, 1fr) 0.6fr repeat(3, 1fr) 5fr repeat(4, 1fr);
-  grid-template-rows: 1fr;
+  grid-auto-rows: 1fr;
   grid-column-gap: 2.5px;
-  grid-row-gap: 0px; 
+  grid-row-gap: 10px; 
 
   padding: 60px 0 0;
 }
@@ -117,102 +117,11 @@ body {
   box-shadow: 0px 0.18rem 0px var(--airforceblue);
 }
 
-.tool-1 {
-  grid-area: 1 / 1 / 2 / 2;
+.toolkit > * { /* Target all direct children of .toolkit and apply grayscale to all children by default*/
   filter: grayscale(1);
 }
-
-.tool-2 {
-  grid-area: 1 / 2 / 2 / 3;
-  filter: grayscale(1);
-}
-
-.tool-3 {
-  filter: grayscale(1);
-  grid-area: 1 / 3 / 2 / 4;
-}
-
-.tool-4 {
-  grid-area: 1 / 5 / 2 / 6;
-}
-
-.tool-5 {
-  filter: grayscale(1);
-  grid-area: 1 / 6 / 2 / 7;
-}
-
-.tool-6 {
-  filter: grayscale(1);
-  grid-area: 1 / 7 / 2 / 8;
-}
-
-.tool-7 {
-  filter: grayscale(1);
-  grid-area: 1 / 8 / 2 / 9;
-}
-
-.tool-8 {
-  filter: grayscale(1);
-  grid-area: 1 / 9 / 2 / 10;
-}
-
-.tool-9 {
-  filter: grayscale(1);
-  grid-area: 1 / 10 / 2 / 11;
-}
-
-.tool-10 {
-  grid-area: 1 / 11 / 2 / 12;
-}
-
-.tool-11 {
-  grid-area: 1 / 12 / 2 / 13;
-}
-
-.tool-12 {
-  filter: grayscale(1);
-  grid-area: 1 / 13 / 2 / 14;
-}
-
-.tool-13 {
-  filter: grayscale(1);
-  grid-area: 1 / 14 / 2 / 15;
-}
-
-.tool-14 {
-  filter: grayscale(1);
-  grid-area: 1 / 16 / 2 / 17;
-}
-
-.tool-15 {
-  filter: grayscale(1);
-  grid-area: 1 / 17 / 2 / 18;
-}
-
-.tool-16 {
-  filter: grayscale(1);
-  grid-area: 1 / 18 / 2 / 19;
-}
-
-.tool-17 {
-  filter: grayscale(1);
-  grid-area: 1 / 19 / 2 / 20;
-}
-
-.tool-18 {
-  grid-area: 1 / 20 / 2 / 21;
-}
-
-.tool-19 {
-  grid-area: 1 / 21 / 2 / 22;
-}
-
-.tool-20 {
-  grid-area: 1 / 22 / 2 / 23;
-}
-
-.tool-21 {
-  grid-area: 1 / 23 / 2 / 24;
+.toolkit > *:not(:nth-child(6)):not(:nth-child(7)):not(:nth-child(10)) {
+  filter: none; /* Remove grayscale from the exceptions */
 }
 
 #bold {

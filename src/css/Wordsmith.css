@@ -1,0 +1,8 @@
+#wordsmith {
+    border: 1px solid magenta;
+    width: 75vw;
+    max-width: 1920px;
+    height: auto;
+    padding: 50px 30px;
+    border-radius: 10px;
+}
