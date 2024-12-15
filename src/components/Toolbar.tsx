@@ -163,11 +163,6 @@ export default function Toolbar() {
         });
     }, [editor]);
 
-    editor.registerCommand(INSERT_ORDERED_LIST_COMMAND, () => {
-        insertList(editor, 'bullet');
-        return true;
-    }, LowPriority);
-
     return (
         <div className="toolbar" id="toolbar" ref={toolbarRef}>
             <ButtonSmall tooltip="Uppercase" id="uppercase" content={<p>A</p>} color="orange" style="solid" onClick={handleUppercase} />
@@ -188,9 +183,7 @@ export default function Toolbar() {
             <ButtonSmall classString={(isStrikethrough ? ' active' : '')} tooltip="Strikethrough" id="strikethrough" content={<FontAwesomeIcon icon={faStrikethrough} />} color="orange" style="outline" onClick={() => {
                 editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'strikethrough');
             }} />
-            <ButtonSmall tooltip="Ordered List" id="ordered_list" content={<FontAwesomeIcon icon={faListOl} />} color="orange" style="solid" onClick={() => {
-                editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined);
-            }} />
+            <ButtonSmall tooltip="Ordered List" id="ordered_list" content={<FontAwesomeIcon icon={faListOl} />} color="orange" style="solid" />
             <ButtonSmall tooltip="Unordered List" id="unordered_list" content={<FontAwesomeIcon icon={faListUl} />} color="orange" style="solid" />
             <ButtonSmall tooltip="Add Hyperlink" id="add_hyperlink" content={<FontAwesomeIcon icon={faLink} />} color="blue" style="outline" />
             <ButtonSmall tooltip="Remove Hyperlink" id="remove_hyperlink" content={<FontAwesomeIcon icon={faLinkSlash} />} color="blue" style="outline" />
