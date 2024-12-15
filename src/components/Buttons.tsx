@@ -1,4 +1,4 @@
-type ButtonColor = 'orange' | 'blue' | 'greyscale';
+type ButtonColor = 'orange' | 'blue' | 'red';
 type ButtonStyle = 'solid' | 'outline';
 
 interface ButtonProps {
@@ -12,7 +12,7 @@ interface ButtonProps {
     classString?: string;
 }
 
-export function ButtonSmall({tooltip, id, content, color = "orange", style="solid", onClick, disabled, classString = " "}: ButtonProps) {
+export function ButtonSmall({tooltip, id, content, color = "orange", style="solid", onClick, disabled, classString = ""}: ButtonProps) {
     let buttonClasses = "";
 
     buttonClasses += `${color}-${style}`;

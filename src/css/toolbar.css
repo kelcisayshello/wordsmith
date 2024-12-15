@@ -17,10 +17,12 @@
     font-size: 1rem;
 }
 
-.toolbar button:active {
+.toolbar button:active,
+.toolbar button.active i, 
+.toolbar button.active p {
     transform: translateY(1px);
 
-    background: var(--floralwhite);
+    background-color: var(--floralwhite);
     -webkit-box-shadow: inset 0px 0px 5px #d2cec1;
     -moz-box-shadow: inset 0px 0px 5px #d2cec1;
     box-shadow: inset 0px 0px 5px #d2cec1;
@@ -37,32 +39,34 @@
 }
 
 .toolbar button.active {
-    background-color: rgba(223, 232, 250, 0.3);
-}
+    transform: translateY(1px);
 
-.toolbar button.active i, 
-.toolbar button.active p {
-    opacity: 1;
+    background-color: var(--floralwhite);
+    -webkit-box-shadow: inset 0px 0px 5px #d2cec1;
+    -moz-box-shadow: inset 0px 0px 5px #d2cec1;
+    box-shadow: inset 0px 0px 5px #d2cec1;
+
+    border: 2px solid #d2cec1;
 }
 
 /* button color styles */
 .orange-solid {
     background-color: var(--orange);
-    box-shadow: 0 var(--shadow-offset) 0 var(--sinopia);
+    box-shadow: 0 var(--shadow-offset) 0 var(--tawny);
 }
 
 .orange-solid:hover {
-    box-shadow: 0 var(--shadow-offset-hover) 0 var(--sinopia);
+    box-shadow: 0 var(--shadow-offset-hover) 0 var(--tawny);
 }
 
 .orange-outline {
     background-color: var(--light-bg);
     border: 2px solid var(--orange) !important;
-    box-shadow: 0 var(--shadow-offset) 0 var(--sinopia);
+    box-shadow: 0 var(--shadow-offset) 0 var(--tawny);
 }
 
 .orange-outline:hover {
-    box-shadow: 0 var(--shadow-offset-hover) 0 var(--sinopia);
+    box-shadow: 0 var(--shadow-offset-hover) 0 var(--tawny);
 }
 
 .blue-solid {
@@ -82,4 +86,10 @@
 
 .blue-outline:hover {
     box-shadow: 0 var(--shadow-offset-hover) 0 var(--airforceblue);
+}
+
+.red-outline {
+    background-color: var(--light-bg);
+    border: 2px solid var(--red) !important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--firebrick);
 }

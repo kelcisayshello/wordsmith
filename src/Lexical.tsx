@@ -124,7 +124,7 @@ const editorConfig = {
     export: exportMap,
     import: constructImportMap(),
   },
-  namespace: 'React.js Demo',
+  namespace: 'Wordsmith',
   nodes: [ParagraphNode, TextNode],
   onError(error: Error) {
     throw error;
