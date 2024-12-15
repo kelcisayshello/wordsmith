@@ -13,12 +13,13 @@
     overflow-y: auto;
 
     outline: none;
+    line-height: 1.5;
 }
 
 .placeholder-text {
     position: absolute;
     color: #999;
-    top: 13px;
+    top: 16px;
     left: 10px;
     pointer-events: none; /* Prevent interaction with the placeholder */
     user-select: none;

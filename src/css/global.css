@@ -4,6 +4,8 @@
 
   --red: #DB514F;
   --firebrick: #B0302E;
+  --aerospaceorange: #FF5300;
+  --orangepeel: #FBA225;
   --orange: #FA864C;
   --tawny: #CE5E26;
   --columbiablue: #C9E6F0;
@@ -11,6 +13,7 @@
   --carolinablue: #78B3CE;
   --airforceblue: #5B899F;
   --floralwhite: #FBF8EF;
+  --antiflashwhite: #EBEBEB;
   --davysgray: #494845;
 
   --shadow-offset: 0.3rem;
@@ -36,8 +39,8 @@
 
 ::-moz-selection,
 ::selection { /* Code for Firefox */
-  background-color: #FF5300;
-  color: #FBA225;
+  background-color: var(--aerospaceorange);
+  color: var(--orangepeel);
 }
 
 body {
@@ -55,6 +58,16 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+footer {
+  text-align: center;
+  opacity: 0.7;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--carolinablue)
 }
 
 /* @media (prefers-color-scheme: light) {

@@ -5,6 +5,8 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
+import { LinkPlugin } from '@lexical/react/LexicalLinkPlugin';
+import LexicalClickableLinkPlugin from '@lexical/react/LexicalClickableLinkPlugin';
 import {
     ParagraphNode,
     TextNode,
@@ -52,6 +54,14 @@ const editorConfig = {
     theme: WordsmithTheme
 };
 
+const urlRegExp = new RegExp(
+    /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[\w]*))?)/,
+);
+
+export function validateUrl(url: string): boolean {
+    return url === 'https://' || urlRegExp.test(url);
+}
+
 export default function Lexical() {
     return (
         <LexicalComposer initialConfig={editorConfig}>
@@ -73,6 +83,8 @@ export default function Lexical() {
                     <HistoryPlugin />
                     <AutoFocusPlugin />
                     <ListPlugin />
+                    <LinkPlugin validateUrl={validateUrl} />
+                    <LexicalClickableLinkPlugin />
                 </div>
             </div>
         </LexicalComposer>

@@ -29,3 +29,31 @@
 .editor-list-ol .editor-listitem {
     padding-left: 2em;
 }
+
+.editor-link,
+.editor-link:link {
+    color: var(--airforceblue);
+}
+
+.editor-link:visited {
+    color: var(--orangepeel);
+}
+
+.editor-text-code {
+    background: var(--antiflashwhite);
+    border-radius: 5px;
+    padding: 3px 7px;
+    color: var(--firebrick)
+}
+
+.clipboard-notification {
+    position: fixed; 
+    top: 2%;  
+    left: 50%;  
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--floralwhite);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 10000;
+}
