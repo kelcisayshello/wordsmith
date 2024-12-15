@@ -36,6 +36,15 @@
     font-weight: 500;
 }
 
+.toolbar button.active {
+    background-color: rgba(223, 232, 250, 0.3);
+}
+
+.toolbar button.active i, 
+.toolbar button.active p {
+    opacity: 1;
+}
+
 /* button color styles */
 .orange-solid {
     background-color: var(--orange);
@@ -48,7 +57,7 @@
 
 .orange-outline {
     background-color: var(--light-bg);
-    border: 2px solid var(--orange)!important;
+    border: 2px solid var(--orange) !important;
     box-shadow: 0 var(--shadow-offset) 0 var(--sinopia);
 }
 
@@ -67,7 +76,7 @@
 
 .blue-outline {
     background-color: var(--light-bg);
-    border: 2px solid var(--carolinablue)!important;
+    border: 2px solid var(--carolinablue) !important;
     box-shadow: 0 var(--shadow-offset) 0 var(--airforceblue);
 }
 

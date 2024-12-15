@@ -8,9 +8,11 @@ interface ButtonProps {
     onClick?: () => void;
     color?: ButtonColor;
     style?: ButtonStyle;
+    disabled?: boolean;
+    classString?: string;
 }
 
-export function ButtonSmall({tooltip, id, content, color = "orange", style="solid"}: ButtonProps) {
+export function ButtonSmall({tooltip, id, content, color = "orange", style="solid", onClick, disabled, classString = " "}: ButtonProps) {
     let buttonClasses = "";
 
     buttonClasses += `${color}-${style}`;
@@ -18,9 +20,11 @@ export function ButtonSmall({tooltip, id, content, color = "orange", style="soli
     return (
         <button
             title={tooltip}
+            aria-label={tooltip}
             id={id}
-            className={buttonClasses}
-            // onClick={onlick}
+            className={buttonClasses + classString}
+            onClick={onClick}
+            disabled={disabled}
         >
             {content ? content : " "}
         </button>
