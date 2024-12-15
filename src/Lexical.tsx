@@ -10,7 +10,7 @@ import {
     TextNode,
 } from 'lexical';
 import WordsmithTheme from './components/WordsmithTheme';
-import Toolbar from "./components/Toolbar";
+import Toolbar from "./Toolbar";
 import { ListPlugin } from '@lexical/react/LexicalListPlugin';
 import { ListItemNode, ListNode } from '@lexical/list';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
@@ -18,6 +18,7 @@ import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
 import { LinkNode, AutoLinkNode } from '@lexical/link';
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { HashtagNode } from '@lexical/hashtag';
+import { ExtendedTextNode } from "./plugins/ExtendedTextNode";
 
 const placeholder = 'Please enter some text here . . .';
 
@@ -26,6 +27,12 @@ const editorConfig = {
     nodes: [
         ParagraphNode,
         TextNode,
+        ExtendedTextNode,
+        {
+            replace: TextNode,
+            with: (node: TextNode) => new ExtendedTextNode(node.__text),
+            withKlass: ExtendedTextNode,
+        },
         ListNode,
         ListItemNode,
         QuoteNode,

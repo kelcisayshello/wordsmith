@@ -1,19 +1,8 @@
 # Wordsmith
-README.md details coming soon
+Updated README.md details are coming soon.
 
-### File Hierarchy
-`Main > App > Wordsmith (Form) > Lexical (RichTextEditor)`
-
-### To Do List
-* heading formats (h1 - h6)
-* bold
-* italics
-* underline
-* highlight
-* strikethrough
-* code block format
-* text align (left, center, right)
-* undo
-* redo
-* copy
-* paste
+### Developer Task List
+- [ ] standardize import to Lexical editor
+- [ ] standard export from Lexical editor (line heights, font weights, applied button styles)
+- [x] paste original vanilla javascript styles
+- [x] add increase + decrease font buttons

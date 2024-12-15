@@ -1,8 +1,9 @@
-import { ButtonSpacer, ButtonSmall } from "./Buttons";
+import { ButtonSpacer, ButtonSmall } from "./components/Buttons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faItalic, faUnderline, faStrikethrough, faCode, faListOl, faListUl, faLink, faLinkSlash, faIndent, faPlus, faMinus, faBrush, faCopy, faArrowRotateRight, faTrashCan, faAlignLeft, faAlignJustify, faAlignRight, faTerminal } from '@fortawesome/free-solid-svg-icons';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { $patchStyleText } from '@lexical/selection';
+import { TOGGLE_LINK_COMMAND, $isLinkNode } from '@lexical/link'
 import { mergeRegister } from '@lexical/utils';
 import {
     $getRoot,
@@ -23,8 +24,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 const LowPriority = 1;
 
-import "../css/toolbar.css"
-import "../css/textformatting.css"
+import "./css/toolbar.css"
+import "./css/textformatting.css"
 
 export default function Toolbar() {
     const [editor] = useLexicalComposerContext();
@@ -35,6 +36,7 @@ export default function Toolbar() {
     const [isItalic, setIsItalic] = useState(false);
     const [isUnderline, setIsUnderline] = useState(false);
     const [isStrikethrough, setIsStrikethrough] = useState(false);
+    const [isLink, setIsLink] = useState(false);
 
     const $updateToolbar = useCallback(() => {
         const selection = $getSelection();
@@ -43,6 +45,7 @@ export default function Toolbar() {
             setIsItalic(selection.hasFormat('italic'));
             setIsUnderline(selection.hasFormat('underline'));
             setIsStrikethrough(selection.hasFormat('strikethrough'));
+            setIsLink(selection.isCollapsed() ? false : selection.getNodes().some($isLinkNode));
         }
     }, []);
 
@@ -184,8 +187,25 @@ export default function Toolbar() {
             }} />
             <ButtonSmall classString=" grayscale" tooltip="Ordered List" id="ordered_list" content={<FontAwesomeIcon icon={faListOl} />} color="orange" style="solid" />
             <ButtonSmall classString=" grayscale" tooltip="Unordered List" id="unordered_list" content={<FontAwesomeIcon icon={faListUl} />} color="orange" style="solid" />
-            <ButtonSmall classString=" grayscale" tooltip="Add Hyperlink" id="add_hyperlink" content={<FontAwesomeIcon icon={faLink} />} color="blue" style="outline" />
-            <ButtonSmall classString=" grayscale" tooltip="Remove Hyperlink" id="remove_hyperlink" content={<FontAwesomeIcon icon={faLinkSlash} />} color="blue" style="outline" />
+            <ButtonSmall
+                tooltip="Add Hyperlink" id="add_hyperlink"
+                content={<FontAwesomeIcon icon={faLink} />}
+                onClick={() => {
+                    const url = window.prompt('Enter valid URL:', '');
+                    if (url) {
+                        editor.dispatchCommand(TOGGLE_LINK_COMMAND, url);
+                    }
+                }}
+                classString={(isLink ? ' active' : '')}
+            />
+            <ButtonSmall
+                tooltip="Remove Hyperink" id="remove_hyperlink"
+                content={<FontAwesomeIcon icon={faLinkSlash} />}
+                onClick={() => {
+                    editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+                }}
+                disabled={!isLink}
+            />
             <ButtonSmall classString=" grayscale" tooltip="Indent" id="indent" content={<FontAwesomeIcon icon={faIndent} />} color="orange" style="solid" />
             <ButtonSmall classString=" grayscale" tooltip="Unindent" id="unindent" content={<FontAwesomeIcon icon={faIndent} flip="horizontal" />} color="orange" style="solid" />
 

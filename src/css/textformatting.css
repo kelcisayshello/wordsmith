@@ -21,3 +21,11 @@
 .editor-text-underlineStrikethrough {
     text-decoration: underline line-through;
 }
+
+.editor-list-ol {
+    list-style-position: inside;
+}
+
+.editor-list-ol .editor-listitem {
+    padding-left: 2em;
+}
