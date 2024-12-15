@@ -6,10 +6,9 @@ import { CodeHighlightNode, CodeNode } from "@lexical/code"
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin"
 import { ContentEditable } from "@lexical/react/LexicalContentEditable"
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary"
+import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
 
-import "./css/Lexical.css"
-import { placeholder } from "@babel/types"
-
+import "./css/lexical.css"
 
 interface LexicalProps { }
 
@@ -18,7 +17,10 @@ const initialConfig = {
   theme: {
     placeholder: 'placeholder-text'
   },
-  onError: () => { },
+  onError: (error: Error) => {
+    console.error("Lexical.js Error:", error);
+    throw error;
+  },
   nodes: [HeadingNode, CodeHighlightNode, CodeNode]
 }
 
@@ -33,6 +35,7 @@ export const Lexical: React.FC<LexicalProps> = React.memo(
             placeholder={<div className="placeholder-text">Please enter the text you would like to format. This could be anything from a simple sentence to a small document with multiple paragraphs . . .</div>}
           />
         </div>
+        <HistoryPlugin />
       </LexicalComposer>
     )
   }

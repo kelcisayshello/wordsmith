@@ -7,7 +7,7 @@
   --skyblue: #8FCCE0;
   --carolinablue: #78B3CE;
   --airforceblue: #5B899F;
- --floralwhite: #FBF8EF;
+  --floralwhite: #FBF8EF;
 }
 
 * {
@@ -117,9 +117,6 @@ body {
   box-shadow: 0px 0.18rem 0px var(--airforceblue);
 }
 
-.toolkit > * { /* Target all direct children of .toolkit and apply grayscale to all children by default*/
-  filter: grayscale(1);
-}
 .toolkit > *:not(:nth-child(6)):not(:nth-child(7)):not(:nth-child(10)) {
   filter: none; /* Remove grayscale from the exceptions */
 }

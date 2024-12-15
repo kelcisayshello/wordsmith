@@ -11,6 +11,9 @@
   --floralwhite: #FBF8EF;
   --davysgray: #494845;
 
+  --shadow-offset: 0.3rem;
+  --shadow-offset-hover: 0.18rem;
+
   /* font-weight: 400; */
 
   color-scheme: light dark;
