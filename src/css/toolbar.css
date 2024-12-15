@@ -93,3 +93,7 @@
     border: 2px solid var(--red) !important;
     box-shadow: 0 var(--shadow-offset) 0 var(--firebrick);
 }
+
+.grayscale {
+    filter: grayscale(1);
+}

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faItalic, faUnderline, faStrikethrough, faCode, faListOl, faListUl, faLink, faLinkSlash, faIndent, faPlus, faMinus, faBrush, faCopy, faArrowRotateRight, faTrashCan, faAlignLeft, faAlignJustify, faAlignRight, faTerminal } from '@fortawesome/free-solid-svg-icons';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { $patchStyleText } from '@lexical/selection';
-import { INSERT_ORDERED_LIST_COMMAND, insertList } from "@lexical/list"
 import { mergeRegister } from '@lexical/utils';
 import {
     $getRoot,
@@ -183,20 +182,20 @@ export default function Toolbar() {
             <ButtonSmall classString={(isStrikethrough ? ' active' : '')} tooltip="Strikethrough" id="strikethrough" content={<FontAwesomeIcon icon={faStrikethrough} />} color="orange" style="outline" onClick={() => {
                 editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'strikethrough');
             }} />
-            <ButtonSmall tooltip="Ordered List" id="ordered_list" content={<FontAwesomeIcon icon={faListOl} />} color="orange" style="solid" />
-            <ButtonSmall tooltip="Unordered List" id="unordered_list" content={<FontAwesomeIcon icon={faListUl} />} color="orange" style="solid" />
-            <ButtonSmall tooltip="Add Hyperlink" id="add_hyperlink" content={<FontAwesomeIcon icon={faLink} />} color="blue" style="outline" />
-            <ButtonSmall tooltip="Remove Hyperlink" id="remove_hyperlink" content={<FontAwesomeIcon icon={faLinkSlash} />} color="blue" style="outline" />
-            <ButtonSmall tooltip="Indent" id="indent" content={<FontAwesomeIcon icon={faIndent} />} color="orange" style="solid" />
-            <ButtonSmall tooltip="Unindent" id="unindent" content={<FontAwesomeIcon icon={faIndent} flip="horizontal" />} color="orange" style="solid" />
+            <ButtonSmall classString=" grayscale" tooltip="Ordered List" id="ordered_list" content={<FontAwesomeIcon icon={faListOl} />} color="orange" style="solid" />
+            <ButtonSmall classString=" grayscale" tooltip="Unordered List" id="unordered_list" content={<FontAwesomeIcon icon={faListUl} />} color="orange" style="solid" />
+            <ButtonSmall classString=" grayscale" tooltip="Add Hyperlink" id="add_hyperlink" content={<FontAwesomeIcon icon={faLink} />} color="blue" style="outline" />
+            <ButtonSmall classString=" grayscale" tooltip="Remove Hyperlink" id="remove_hyperlink" content={<FontAwesomeIcon icon={faLinkSlash} />} color="blue" style="outline" />
+            <ButtonSmall classString=" grayscale" tooltip="Indent" id="indent" content={<FontAwesomeIcon icon={faIndent} />} color="orange" style="solid" />
+            <ButtonSmall classString=" grayscale" tooltip="Unindent" id="unindent" content={<FontAwesomeIcon icon={faIndent} flip="horizontal" />} color="orange" style="solid" />
 
             <ButtonSpacer />
 
-            <ButtonSmall tooltip="Increase Font" id="increase_font" content={<FontAwesomeIcon icon={faPlus} />} color="blue" style="solid" />
-            <ButtonSmall tooltip="Decrease Font" id="decrease_font" content={<FontAwesomeIcon icon={faMinus} />} color="blue" style="solid" />
-            <ButtonSmall tooltip="Change Font Color" id="change_font_color" content={<FontAwesomeIcon icon={faBrush} />} color="orange" style="outline" />
+            <ButtonSmall classString=" grayscale" tooltip="Increase Font" id="increase_font" content={<FontAwesomeIcon icon={faPlus} />} color="blue" style="solid" />
+            <ButtonSmall classString=" grayscale" tooltip="Decrease Font" id="decrease_font" content={<FontAwesomeIcon icon={faMinus} />} color="blue" style="solid" />
+            <ButtonSmall classString=" grayscale" tooltip="Change Font Color" id="change_font_color" content={<FontAwesomeIcon icon={faBrush} />} color="orange" style="outline" />
 
-            <ButtonSmall tooltip="Code Block" id="code_block" content={<FontAwesomeIcon icon={faCode} />} color="orange" style="solid" />
+            <ButtonSmall classString=" grayscale" tooltip="Code Block" id="code_block" content={<FontAwesomeIcon icon={faCode} />} color="orange" style="solid" />
             <ButtonSmall tooltip="Copy" id="copy" content={<FontAwesomeIcon icon={faCopy} />} color="blue" style="outline" />
             <ButtonSmall tooltip="Undo" id="undo" content={<FontAwesomeIcon icon={faArrowRotateRight} flip="horizontal" />} color="orange" style="outline" disabled={!canUndo} onClick={() => {
                 editor.dispatchCommand(UNDO_COMMAND, undefined);

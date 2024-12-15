@@ -32,6 +32,7 @@ const editorConfig = {
         TableCellNode,
         TableNode,
         TableRowNode,
+        HeadingNode,
         LinkNode,
         AutoLinkNode,
         CodeHighlightNode,
