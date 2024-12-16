@@ -3,7 +3,7 @@ type ButtonStyle = 'solid' | 'outline';
 
 interface ButtonProps {
     tooltip: string;
-    id: string;
+    id?: string;
     content?: React.ReactNode; //optional for FontAwesome <i> icons or plain text content like "A" or "Aa", etc.
     onClick?: () => void;
     color?: ButtonColor;

@@ -406,8 +406,8 @@ export default function Toolbar() {
             <ButtonSmall tooltip="Unindent"
                 classString=" grayscale" id="unindent" content={<FontAwesomeIcon icon={faIndent} flip="horizontal" />} color="orange" style="solid"
             />
-            <ButtonSmall tooltip="Print to Console"
-                id="print_to_console" content={<FontAwesomeIcon icon={faTerminal} />} color="blue" style="outline"
+            <ButtonSmall tooltip="Print Selection to Console"
+                id="print_selection_to_console" content={<FontAwesomeIcon icon={faTerminal} />} color="blue" style="outline"
                 onClick={printSelection}
             />
 

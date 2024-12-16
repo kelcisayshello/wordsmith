@@ -11,7 +11,7 @@ import {
     ParagraphNode,
     TextNode,
 } from 'lexical';
-import WordsmithTheme from './components/WordsmithTheme';
+import WordsmithTheme from './plugins/WordsmithTheme';
 import Toolbar from "./Toolbar";
 import { ListPlugin } from '@lexical/react/LexicalListPlugin';
 import { ListItemNode, ListNode } from '@lexical/list';
