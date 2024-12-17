@@ -1,0 +1,39 @@
+wordsmith
+├── README.md
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   ├── apple-touch-icon.png
+│   ├── favicon-96x96.png
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   ├── site.webmanifest
+│   ├── web-app-manifest-192x192.png
+│   └── web-app-manifest-512x512.png
+├── src
+│   ├── Lexical.tsx
+│   ├── Main.tsx
+│   ├── Toolbar.tsx
+│   ├── Wordsmith.tsx
+│   ├── components
+│   │   ├── Buttons.tsx
+│   │   └── Headings.tsx
+│   ├── css
+│   │   ├── global.css
+│   │   ├── headings.css
+│   │   ├── lexical.css
+│   │   ├── textformatting.css
+│   │   ├── toolbar.css
+│   │   └── wordsmith.css
+│   ├── plugins
+│   │   ├── ExtendedTextNode.tsx
+│   │   └── WordsmithTheme.ts
+│   └── vite-env.d.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+6 directories, 31 files

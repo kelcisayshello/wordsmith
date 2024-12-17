@@ -5,7 +5,7 @@ import { faClipboard, faFileLines } from "@fortawesome/free-regular-svg-icons";
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { $patchStyleText } from '@lexical/selection';
 import { mergeRegister } from '@lexical/utils';
-import { TOGGLE_LINK_COMMAND, $isLinkNode } from "@lexical/link"
+import { TOGGLE_LINK_COMMAND, $isLinkNode, $toggleLink } from "@lexical/link"
 import { useCallback, useEffect, useRef, useState } from 'react';
 import "./css/toolbar.css"
 import "./css/textformatting.css"
@@ -166,17 +166,42 @@ export default function Toolbar() {
         });
     }, [editor]);
 
-    const handleAddHyperlink = () => {
-        const url = window.prompt('Enter valid URL:', '');
+    const handleAddHyperlink = useCallback(() => {
+        const url = window.prompt('Enter a valid URL:', '');
 
-        if (url) {
-            editor.dispatchCommand(TOGGLE_LINK_COMMAND, url);
+        if (url) { /* (1) check if URL exists */
+            const urlRegex = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/i;
+
+            if (urlRegex.test(url)) {
+                editor.dispatchCommand(TOGGLE_LINK_COMMAND, url);
+            } else {
+                alert('Yikes! That is not a valid URL.');
+                handleAddHyperlink();
+            }
         }
-    };
+    }, [editor]);
 
-    const handleRemoveHyperlink = () => {
+    const handleAddRegexHyperlink = useCallback(() => {
+        const url = window.prompt('Enter a valid URL:', '');
+
+        if (url) { /* (1) check if URL exists */
+
+            // (2) Regex to check if URL has http(s) OR is a subdomain URL in valid format
+            const regexForURL = /^((https?:\/\/)([\da-z\.-]+)\.([a-z]{2,}|xn--[a-z0-9-]+)(\/.*)?|([\da-z\.-]+)\.([a-z]{2,}|xn--[a-z0-9-]+))$/i;
+
+            if (regexForURL.test(url)) {
+                editor.dispatchCommand(TOGGLE_LINK_COMMAND, url);
+            } else {
+                alert('Yikes . . . ! That is not a valid URL.');
+                handleAddHyperlink();
+            }
+        }
+    }, [editor]);
+
+
+    const handleRemoveHyperlink = useCallback(() => {
         editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
-    };
+    }, [editor]);
 
     const copySelection = useCallback(() => {
         editor.getEditorState().read(() => {
@@ -239,7 +264,6 @@ export default function Toolbar() {
             });
         } catch (error) {
             console.error('Failed to read clipboard: ', error);
-            // Handle the error (e.g., display an error message)
         }
     }, [editor]);
 
@@ -323,7 +347,7 @@ export default function Toolbar() {
                 classString={(isLink ? ' active' : '')}
             />
             <ButtonSmall tooltip="Remove Hyperink"
-                id="remove_hyperlink" content={<FontAwesomeIcon icon={faLinkSlash} />} disabled={!isLink} color="blue" style="outline"
+                id="remove_hyperlink" content={<FontAwesomeIcon icon={faLinkSlash} />} color="blue" style="outline"
                 onClick={handleRemoveHyperlink}
             />
             <ButtonSmall tooltip="Undo"
