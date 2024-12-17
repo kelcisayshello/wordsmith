@@ -22,11 +22,13 @@
     text-decoration: underline line-through;
 }
 
-.editor-list-ol {
+.editor-list-ol,
+.editor-list-ul {
     list-style-position: inside;
 }
 
-.editor-list-ol .editor-listitem {
+.editor-list-ol .editor-listitem,
+.editor-list-ul .editor-listitem {
     padding-left: 2em;
 }
 

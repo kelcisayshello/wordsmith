@@ -7,6 +7,7 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import { LinkPlugin } from '@lexical/react/LexicalLinkPlugin';
 import LexicalClickableLinkPlugin from '@lexical/react/LexicalClickableLinkPlugin';
+import { TabIndentationPlugin } from "./plugins/LexicalTabIndentation"
 import {
     ParagraphNode,
     TextNode,
@@ -85,6 +86,7 @@ export default function Lexical() {
                     <ListPlugin />
                     <LinkPlugin validateUrl={validateUrl} />
                     <LexicalClickableLinkPlugin />
+                    <TabIndentationPlugin />
                 </div>
             </div>
         </LexicalComposer>
