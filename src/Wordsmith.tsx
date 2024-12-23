@@ -3,6 +3,7 @@ import Heading from "./components/Headings";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import "./css/wordsmith.css"
+import './fonts/Google-Sans.ttf';
 
 export default function Wordsmith() {
   return (

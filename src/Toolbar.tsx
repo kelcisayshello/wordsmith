@@ -281,13 +281,6 @@ export default function Toolbar() {
         });
     }, [editor]);
 
-    const fontFamilies = [
-        { label: 'Arial', value: 'Arial, sans-serif' },
-        { label: 'Times New Roman', value: 'Times New Roman, serif' },
-        { label: 'Courier New', value: 'Courier New, monospace' },
-        { label: 'Verdana', value: 'Verdana, sans-serif' },
-        // Add more fonts as needed
-      ];
     return (
         <div className="toolbar" id="toolbar" ref={toolbarRef}>
             <ButtonSmall tooltip="Uppercase"
@@ -376,7 +369,7 @@ export default function Toolbar() {
             <ButtonSmall tooltip="Change Font Color"
                 classString=" grayscale" id="change_font_color" content={<FontAwesomeIcon icon={faBrush} />} color="orange" style="outline"
             />
-            <FontDropdown fontFamilies={fontFamilies} />
+            <FontDropdown />
             <ButtonSmall tooltip="Copy Selection to Clipboard"
                 id="copy" content={<FontAwesomeIcon icon={faFileLines} />} color="blue" style="outline"
                 onClick={copySelection}

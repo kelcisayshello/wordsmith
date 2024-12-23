@@ -79,3 +79,11 @@ footer a {
     color: #747bff;
   }
 } */
+
+/* ---------------------------- Additional Fonts ---------------------------- */
+@font-face {
+  font-family: "Googl eSans";
+  src: local("GooglecSans"),
+   url("./fonts/Google-Sans.ttf") format("truetype");
+  font-weight: 400;
+ }
