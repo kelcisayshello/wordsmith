@@ -38,7 +38,8 @@
 }
 
 ::-moz-selection,
-::selection { /* Code for Firefox */
+::selection {
+  /* Code for Firefox */
   background-color: var(--aerospaceorange);
   color: var(--orangepeel);
 }
@@ -84,6 +85,6 @@ footer a {
 @font-face {
   font-family: "Googl eSans";
   src: local("GooglecSans"),
-   url("./fonts/Google-Sans.ttf") format("truetype");
+    url("./fonts/Google-Sans.ttf") format("truetype");
   font-weight: 400;
- }
+}

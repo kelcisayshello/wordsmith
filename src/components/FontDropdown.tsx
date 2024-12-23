@@ -7,7 +7,7 @@ import {
   TextNode
 } from 'lexical';
 
-const FontDropdown: React.FC = () => {
+const FontDropdownSelect: React.FC = () => {
   const [editor] = useLexicalComposerContext();
 
   const fontFamilies = [
@@ -69,6 +69,7 @@ const FontDropdown: React.FC = () => {
         const applyFontStyle = (node: any) => {
           if (node instanceof TextNode) {
             node.setStyle(`font-family: ${selectedFont}`);
+            node.setStyle(`color: inherit`);
           } else {
             node.getChildren().forEach(applyFontStyle);
           }
@@ -89,4 +90,4 @@ const FontDropdown: React.FC = () => {
   );
 };
 
-export default FontDropdown;
+export default FontDropdownSelect;
