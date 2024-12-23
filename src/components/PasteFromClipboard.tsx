@@ -6,7 +6,7 @@ import { ButtonSmall } from './Buttons';
 import { showNotification } from '../Toolbar';
 import { useCallback, useState } from 'react';
 
-const PasteFromClipBoard = () => {
+const PasteFromClipBoard_Button = () => {
   const [editor] = useLexicalComposerContext();
   const [notification, setNotification] = useState<string | null>(null);
 
@@ -48,4 +48,4 @@ const PasteFromClipBoard = () => {
   );
 };
 
-export default PasteFromClipBoard;
+export default PasteFromClipBoard_Button;

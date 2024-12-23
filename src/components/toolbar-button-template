@@ -1,0 +1,28 @@
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { $getRoot, $isRangeSelection, $createTextNode, $getSelection, $createParagraphNode } from 'lexical';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { ButtonSmall } from './Buttons';
+import { showNotification } from '../Toolbar';
+import { useCallback, useState } from 'react';
+
+const DecreaseFontSize_Button = () => {
+  const [editor] = useLexicalComposerContext();
+  const [notification, setNotification] = useState<string | null>(null);
+
+  const handlePasteFromClipboard = useCallback(async () => {
+    
+  }, [editor, setNotification]);
+
+  return (
+    <>
+      <ButtonSmall tooltip="Paste from Clipboard"
+        content={<FontAwesomeIcon icon={faClipboard} />} color="blue" style="solid"
+        onClick={handlePasteFromClipboard}
+      />
+    </>
+
+  );
+};
+
+export default PasteFromClipBoard;

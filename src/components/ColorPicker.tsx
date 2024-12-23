@@ -12,7 +12,7 @@ import {
     ElementNode
 } from 'lexical';
 
-const ColorPickerButton = () => {
+const ColorPicker_Button = () => {
     const [editor] = useLexicalComposerContext();
     const [showPicker, setShowPicker] = useState(false);
     const [currentColor, setCurrentColor] = useState(''); // sets initial color to black
@@ -102,4 +102,4 @@ const ColorPickerButton = () => {
     );
 };
 
-export default ColorPickerButton;
+export default ColorPicker_Button;

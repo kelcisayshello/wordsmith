@@ -7,7 +7,7 @@ import {
   TextNode
 } from 'lexical';
 
-const FontDropdownSelect: React.FC = () => {
+const FontDropdown_Select: React.FC = () => {
   const [editor] = useLexicalComposerContext();
 
   const fontFamilies = [
@@ -90,4 +90,4 @@ const FontDropdownSelect: React.FC = () => {
   );
 };
 
-export default FontDropdownSelect;
+export default FontDropdown_Select;

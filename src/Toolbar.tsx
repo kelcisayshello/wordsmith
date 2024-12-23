@@ -1,14 +1,26 @@
-import { ButtonSpacer, ButtonSmall } from "./components/Buttons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faItalic, faUnderline, faStrikethrough, faListOl, faListUl, faLink, faLinkSlash, faIndent, faPlus, faMinus, faCopy, faArrowRotateRight, faTrashCan, faAlignLeft, faAlignJustify, faAlignRight } from '@fortawesome/free-solid-svg-icons';
+import { useCallback, useEffect, useRef, useState } from 'react';
+
+// Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { $patchStyleText } from '@lexical/selection';
 import { mergeRegister } from '@lexical/utils';
 import { TOGGLE_LINK_COMMAND } from "@lexical/link";
 import { INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LIST_COMMAND } from "@lexical/list"
-import FontDropdownSelect from "./components/FontDropdown";
-import ColorPickerButton from "./components/ColorPicker"
-import { useCallback, useEffect, useRef, useState } from 'react';
+
+// Toolbar Components
+import { ButtonSpacer, ButtonSmall } from "./components/Buttons";
+import FontDropdown_Select from "./components/FontDropdown";
+import ColorPicker_Button from "./components/ColorPicker"
+import { IncreaseFontSize_Button, DecreaseFontSize_Button } from "./components/ChangeFontSize";
+import PrintToConsoleButton from "./components/PrintToConsole";
+import PasteFromClipBoard_Button from "./components/PasteFromClipboard";
+import { CopySelectionToClipboard_Button, CopyAllToClipboard_Button } from "./components/CopyToClipboard";
+
+// FontAwesome React
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faItalic, faUnderline, faStrikethrough, faListOl, faListUl, faLink, faLinkSlash, faIndent, faArrowRotateRight, faTrashCan, faAlignLeft, faAlignJustify, faAlignRight } from '@fortawesome/free-solid-svg-icons';
+
+// CSS Style Sheets
 import "./css/toolbar.css"
 import "./css/textformatting.css"
 import {
@@ -25,9 +37,6 @@ import {
     INDENT_CONTENT_COMMAND,
     OUTDENT_CONTENT_COMMAND
 } from 'lexical';
-import PrintToConsoleButton from "./components/PrintToConsole";
-import PasteFromClipBoard from "./components/PasteFromClipboard";
-import { CopySelectionToClipboard_Button, CopyAllToClipboard_Button } from "./components/CopyToClipboard";
 
 export const showNotification = (notification: string, setNotification: React.Dispatch<React.SetStateAction<string | null>>) => {
     setNotification(notification);
@@ -45,14 +54,6 @@ export default function Toolbar() {
     const [isItalic, setIsItalic] = useState(false);
     const [isUnderline, setIsUnderline] = useState(false);
     const [isStrikethrough, setIsStrikethrough] = useState(false);
-    const [copyMessage, setCopyMessage] = useState<string | null>(null);
-
-    const showCopyMessage = (message: string) => {
-        setCopyMessage(message);
-        setTimeout(() => {
-            setCopyMessage(null);
-        }, 3000); // 3 seconds
-    };
 
     const $updateToolbar = useCallback(() => {
         const selection = $getSelection();
@@ -169,34 +170,6 @@ export default function Toolbar() {
         editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
     }, [editor]);
 
-    const handleIncreaseFontSize = useCallback(() => {
-        editor.update(() => {
-            const selection = $getSelection();
-            if ($isRangeSelection(selection)) {
-                $patchStyleText(selection, {
-                    'font-size': (currentStyleValue) => {
-                        const currentSize = parseInt(currentStyleValue || '16', 10);
-                        return `${currentSize + 2}px`;
-                    },
-                });
-            }
-        });
-    }, [editor]);
-
-    const handleDecreaseFontSize = useCallback(() => {
-        editor.update(() => {
-            const selection = $getSelection();
-            if ($isRangeSelection(selection)) {
-                $patchStyleText(selection, {
-                    'font-size': (currentStyleValue) => {
-                        const currentSize = parseInt(currentStyleValue || '16', 10);
-                        return `${Math.max(8, currentSize - 2)}px`; // Min size 8px
-                    },
-                });
-            }
-        });
-    }, [editor]);
-
     return (
         <div className="toolbar" id="toolbar" ref={toolbarRef}>
             <ButtonSmall tooltip="Uppercase"
@@ -274,29 +247,18 @@ export default function Toolbar() {
 
             <ButtonSpacer />
 
-            <ButtonSmall tooltip="Increase Font"
-                content={<FontAwesomeIcon icon={faPlus} />} color="blue" style="solid"
-                onClick={handleIncreaseFontSize}
-            />
-            <ButtonSmall tooltip="Decrease Font"
-                content={<FontAwesomeIcon icon={faMinus} />} color="blue" style="solid"
-                onClick={handleDecreaseFontSize}
-            />
-
-            <ColorPickerButton />
-            <FontDropdownSelect />
+            <IncreaseFontSize_Button />
+            <DecreaseFontSize_Button />
+            <ColorPicker_Button />
+            <FontDropdown_Select />
             <CopySelectionToClipboard_Button />
             <CopyAllToClipboard_Button />
-            <PasteFromClipBoard />
-
-            {copyMessage && (<div className="clipboard-notification">{copyMessage}</div>)}
+            <PasteFromClipBoard_Button />
 
             <ButtonSmall tooltip="Clear Editor"
                 id="clear editor" content={<FontAwesomeIcon icon={faTrashCan} />} color="red" style="outline"
                 onClick={handleClearEditor}
             />
-
-            {/* Line 2 of toolbar buttons */}
 
             <ButtonSmall tooltip="Left Align"
                 id="left_align" content={<FontAwesomeIcon icon={faAlignLeft} flip="vertical" />} color="blue" style="solid"
