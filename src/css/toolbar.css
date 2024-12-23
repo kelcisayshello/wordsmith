@@ -12,13 +12,12 @@
 
 .toolbar button,
 .toolbar select {
-    padding: 8px 0;
     border-radius: 6px;
     font-size: 1rem;
 }
 
 .toolbar button:active,
-.toolbar button.active i, 
+.toolbar button.active i,
 .toolbar button.active p {
     transform: translateY(1px);
 
@@ -36,6 +35,7 @@
     cursor: pointer;
     color: #000;
     font-weight: 500;
+    padding: 8px 0;
 }
 
 .toolbar button.active {
@@ -96,4 +96,15 @@
 
 .grayscale {
     filter: grayscale(1);
+}
+
+.font-dropdown {
+    background-color: var(--light-bg);
+    border: 2px solid var(--orange) !important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--tawny);
+
+    appearance: none; /* removes default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-left: 10px;
 }

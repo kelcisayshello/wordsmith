@@ -5,8 +5,9 @@ import { faClipboard, faFileLines } from "@fortawesome/free-regular-svg-icons";
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { $patchStyleText } from '@lexical/selection';
 import { mergeRegister } from '@lexical/utils';
-import { TOGGLE_LINK_COMMAND } from "@lexical/link"
+import { TOGGLE_LINK_COMMAND } from "@lexical/link";
 import { INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LIST_COMMAND } from "@lexical/list"
+import FontDropdown from "./components/FontDropdown";
 import { useCallback, useEffect, useRef, useState } from 'react';
 import "./css/toolbar.css"
 import "./css/textformatting.css"
@@ -207,7 +208,6 @@ export default function Toolbar() {
         });
     }, [editor]);
 
-
     const copyAll = useCallback(() => {
         editor.getEditorState().read(() => {
             const rootNode = $getRoot();
@@ -281,6 +281,13 @@ export default function Toolbar() {
         });
     }, [editor]);
 
+    const fontFamilies = [
+        { label: 'Arial', value: 'Arial, sans-serif' },
+        { label: 'Times New Roman', value: 'Times New Roman, serif' },
+        { label: 'Courier New', value: 'Courier New, monospace' },
+        { label: 'Verdana', value: 'Verdana, sans-serif' },
+        // Add more fonts as needed
+      ];
     return (
         <div className="toolbar" id="toolbar" ref={toolbarRef}>
             <ButtonSmall tooltip="Uppercase"
@@ -369,9 +376,7 @@ export default function Toolbar() {
             <ButtonSmall tooltip="Change Font Color"
                 classString=" grayscale" id="change_font_color" content={<FontAwesomeIcon icon={faBrush} />} color="orange" style="outline"
             />
-            <ButtonSmall tooltip="Select Font"
-                classString=" grayscale" id="select_font" content={<p>?</p>} color="orange" style="solid"
-            />
+            <FontDropdown fontFamilies={fontFamilies} />
             <ButtonSmall tooltip="Copy Selection to Clipboard"
                 id="copy" content={<FontAwesomeIcon icon={faFileLines} />} color="blue" style="outline"
                 onClick={copySelection}
