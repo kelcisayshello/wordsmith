@@ -23,6 +23,7 @@ import {
 import WordsmithTheme from './plugins/WordsmithTheme';
 import { TabIndentationPlugin } from "./plugins/LexicalTabIndentation"
 import { ExtendedTextNode } from "./plugins/ExtendedTextNode";
+import { CustomParagraphNode } from './plugins/CustomParagraphNode';
 import Toolbar from "./Toolbar";
 
 const placeholder = 'Please enter some text here . . .';
@@ -30,7 +31,13 @@ const placeholder = 'Please enter some text here . . .';
 const editorConfig = {
     namespace: 'Wordsmith',
     nodes: [
-        ParagraphNode,
+        CustomParagraphNode,
+        {
+            replace: ParagraphNode,
+            with: (node: any) => {
+                return new CustomParagraphNode();
+            }
+        },
         TextNode,
         ExtendedTextNode,
         {
