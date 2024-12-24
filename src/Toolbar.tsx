@@ -26,16 +26,16 @@ import ColorPicker_Button from "./components/ColorPicker"
 import { IncreaseFontSize_Button, DecreaseFontSize_Button } from "./components/ChangeFontSize";
 import PrintToConsoleButton from "./components/PrintToConsole";
 import PasteFromClipBoard_Button from "./components/PasteFromClipboard";
+import { RegexAddHyperlink, RemoveHyperlink } from './components/Hyperlink';
 import { CopySelectionToClipboard_Button, CopyAllToClipboard_Button } from "./components/CopyToClipboard";
 
 // FontAwesome React
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faItalic, faUnderline, faStrikethrough, faListOl, faListUl, faLink, faLinkSlash, faIndent, faArrowRotateRight, faTrashCan, faAlignLeft, faAlignJustify, faAlignRight } from '@fortawesome/free-solid-svg-icons';
+import { faItalic, faUnderline, faStrikethrough, faListOl, faListUl, faIndent, faArrowRotateRight, faTrashCan, faAlignLeft, faAlignJustify, faAlignRight } from '@fortawesome/free-solid-svg-icons';
 
 // CSS Style Sheets
 import "./css/toolbar.css"
 import "./css/textformatting.css"
-import { RegexAddHyperlink, RemoveHyperlink } from './components/HyperLink';
 
 export const showNotification = (notification: string, setNotification: React.Dispatch<React.SetStateAction<string | null>>) => {
     setNotification(notification);

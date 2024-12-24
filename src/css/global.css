@@ -19,8 +19,6 @@
   --shadow-offset: 0.3rem;
   --shadow-offset-hover: 0.18rem;
 
-  /* font-weight: 400; */
-
   color-scheme: light dark;
   color: var(--davysgray);
   background-color: var(--floralwhite);
@@ -39,7 +37,6 @@
 
 ::-moz-selection,
 ::selection {
-  /* Code for Firefox */
   background-color: var(--aerospaceorange);
   color: var(--orangepeel);
 }
@@ -52,6 +49,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
+  border: 1px solid blue;
   font-family: "Funnel Sans", serif;
   font-optical-sizing: auto;
 }
