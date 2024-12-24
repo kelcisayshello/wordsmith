@@ -21,6 +21,7 @@ Below is a growing list of formatting options as of version `1.0`.
 - Left Align, Center Align, Right Align
 - Indent, Outdent
 - Print Selection to Javascript Console
+- Dark and Light Mode (System-Preference Dependent)
 
 ### What's Cooking? 🍳 (Coming Up Next)
 Wordsmith is still under development so I'll constantly be adding new features. Coming up next includes support for:
@@ -28,10 +29,11 @@ Wordsmith is still under development so I'll constantly be adding new features. 
 * Copy/Paste Images and Embed Links
 * Tables and Table Formatting
 * Reset Formatting on Text Selection
-* Dark and Light Mode
+* Dark and Light Mode UI Toggler
 * Developer Debug Mode
 * Save and Restore Notes
 * Live Link to Note
+* Save Frequent Email Signature(s) 
 
 ### Unsupported Features
 I currently have no intention to add the below features to the text editor but that could change at any time:
