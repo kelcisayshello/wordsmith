@@ -1,10 +1,16 @@
+import { useCallback } from 'react';
+
+// Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { $isRangeSelection, $getSelection } from 'lexical';
 import { $patchStyleText } from '@lexical/selection';
+import { $isRangeSelection, $getSelection } from 'lexical';
+
+// FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+
+// Components
 import { ButtonSmall } from './Buttons';
-import { useCallback } from 'react';
 
 export const IncreaseFontSize_Button = () => {
   const [editor] = useLexicalComposerContext();

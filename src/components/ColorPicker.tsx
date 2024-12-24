@@ -1,8 +1,9 @@
 import { useState, useCallback } from 'react';
+
+// Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBrush } from '@fortawesome/free-solid-svg-icons';
-import { ButtonSmall } from './Buttons';
 import {
     $getRoot,
     $getSelection,
@@ -11,6 +12,9 @@ import {
     LexicalNode,
     ElementNode
 } from 'lexical';
+
+// Components
+import { ButtonSmall } from './Buttons';
 
 const ColorPicker_Button = () => {
     const [editor] = useLexicalComposerContext();

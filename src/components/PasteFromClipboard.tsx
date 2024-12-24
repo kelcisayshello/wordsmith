@@ -1,10 +1,16 @@
+import { useCallback, useState } from 'react';
+
+// Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { $getRoot, $isRangeSelection, $createTextNode, $getSelection, $createParagraphNode } from 'lexical';
+
+// FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+
+// Components
 import { ButtonSmall } from './Buttons';
 import { showNotification } from '../Toolbar';
-import { useCallback, useState } from 'react';
 
 const PasteFromClipBoard_Button = () => {
   const [editor] = useLexicalComposerContext();

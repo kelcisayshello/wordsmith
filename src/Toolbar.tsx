@@ -2,14 +2,26 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 // Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { $patchStyleText } from '@lexical/selection';
 import { mergeRegister } from '@lexical/utils';
-import { TOGGLE_LINK_COMMAND } from "@lexical/link";
 import { INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LIST_COMMAND } from "@lexical/list"
+import {
+    $getSelection,
+    $isRangeSelection,
+    CAN_REDO_COMMAND,
+    CAN_UNDO_COMMAND,
+    FORMAT_ELEMENT_COMMAND,
+    FORMAT_TEXT_COMMAND,
+    REDO_COMMAND,
+    SELECTION_CHANGE_COMMAND,
+    UNDO_COMMAND,
+    INDENT_CONTENT_COMMAND,
+    OUTDENT_CONTENT_COMMAND
+} from 'lexical';
 
-// Toolbar Components
+// Components
 import { ButtonSpacer, ButtonSmall } from "./components/Buttons";
 import FontDropdown_Select from "./components/FontDropdown";
+import { Capitalize_Button, Lowercase_Button, UpperCase_Button } from './components/TextCase';
 import ColorPicker_Button from "./components/ColorPicker"
 import { IncreaseFontSize_Button, DecreaseFontSize_Button } from "./components/ChangeFontSize";
 import PrintToConsoleButton from "./components/PrintToConsole";
@@ -23,20 +35,7 @@ import { faItalic, faUnderline, faStrikethrough, faListOl, faListUl, faLink, faL
 // CSS Style Sheets
 import "./css/toolbar.css"
 import "./css/textformatting.css"
-import {
-    $createTextNode,
-    $getSelection,
-    $isRangeSelection,
-    CAN_REDO_COMMAND,
-    CAN_UNDO_COMMAND,
-    FORMAT_ELEMENT_COMMAND,
-    FORMAT_TEXT_COMMAND,
-    REDO_COMMAND,
-    SELECTION_CHANGE_COMMAND,
-    UNDO_COMMAND,
-    INDENT_CONTENT_COMMAND,
-    OUTDENT_CONTENT_COMMAND
-} from 'lexical';
+import { RegexAddHyperlink, RemoveHyperlink } from './components/HyperLink';
 
 export const showNotification = (notification: string, setNotification: React.Dispatch<React.SetStateAction<string | null>>) => {
     setNotification(notification);
@@ -101,7 +100,6 @@ export default function Toolbar() {
         );
     }, [editor, $updateToolbar]);
 
-    /* ------------------------ Custom Toolbar Functions ------------------------ */
     const handleClearEditor = useCallback(() => {
         const confirmClear = window.confirm("Want to clear everything? 💥 (Don't worry, UNDO button has your back)");
         if (confirmClear) {
@@ -109,81 +107,11 @@ export default function Toolbar() {
         }
     }, [editor]);
 
-    const handleUppercase = () => {
-        editor.update(() => {
-            const selection = $getSelection()
-            if ($isRangeSelection(selection)) {
-                $patchStyleText(selection, { "text-transform": "uppercase" })
-            }
-        })
-    }
-
-    const handleLowercase = () => {
-        editor.update(() => {
-            const selection = $getSelection()
-            if ($isRangeSelection(selection)) {
-                $patchStyleText(selection, { "text-transform": "lowercase" })
-            }
-        })
-    }
-
-    const handleCapitalize = useCallback(() => {
-        editor.update(() => {
-            const selection = $getSelection();
-
-            if ($isRangeSelection(selection)) {
-                const selectedText = selection.getTextContent();
-
-                if (selectedText) {
-                    const capitalizedText = selectedText.split(/\s+/).map(word => {
-                        if (word.length > 0) {
-                            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-                        }
-                        return "";
-                    }).join(" ");
-
-                    selection.insertNodes([$createTextNode(capitalizedText)]);
-                }
-            }
-        });
-    }, [editor]);
-
-    const handleAddRegexHyperlink = useCallback(() => {
-        const url = window.prompt('Enter a valid URL:', '');
-
-        if (url) { /* (1) check if URL exists */
-
-            // (2) Regex to check if URL has http(s) OR is a subdomain URL in valid format
-            const regexForURL = /^((https?:\/\/)([\da-z\.-]+)\.([a-z]{2,}|xn--[a-z0-9-]+)(\/.*)?|([\da-z\.-]+)\.([a-z]{2,}|xn--[a-z0-9-]+))$/i;
-
-            if (regexForURL.test(url)) {
-                editor.dispatchCommand(TOGGLE_LINK_COMMAND, url);
-            } else {
-                alert('Yikes . . . ! That is not a valid URL.');
-                handleAddRegexHyperlink();
-            }
-        }
-    }, [editor]);
-
-
-    const handleRemoveHyperlink = useCallback(() => {
-        editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
-    }, [editor]);
-
     return (
         <div className="toolbar" id="toolbar" ref={toolbarRef}>
-            <ButtonSmall tooltip="Uppercase"
-                content={<p>A</p>} color="orange" style="solid"
-                onClick={handleUppercase}
-            />
-            <ButtonSmall tooltip="Lowercase"
-                content={<p>a</p>} color="orange" style="solid"
-                onClick={handleLowercase}
-            />
-            <ButtonSmall tooltip="Capitalize"
-                content={<p>Aa</p>} color="orange" style="outline"
-                onClick={handleCapitalize}
-            />
+            <UpperCase_Button />
+            <Lowercase_Button />
+            <Capitalize_Button />
 
             <ButtonSpacer />
 
@@ -222,14 +150,8 @@ export default function Toolbar() {
                     editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined);
                 }}
             />
-            <ButtonSmall tooltip="Add Hyperlink"
-                content={<FontAwesomeIcon icon={faLink} />} color="blue" style="outline"
-                onClick={handleAddRegexHyperlink}
-            />
-            <ButtonSmall tooltip="Remove Hyperlink"
-                content={<FontAwesomeIcon icon={faLinkSlash} />} color="blue" style="outline"
-                onClick={handleRemoveHyperlink}
-            />
+            <RegexAddHyperlink />
+            <RemoveHyperlink />
             <ButtonSmall tooltip="Undo"
                 content={<FontAwesomeIcon icon={faArrowRotateRight} flip="horizontal" />} color="orange" style="solid"
                 disabled={!canUndo}

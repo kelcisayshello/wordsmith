@@ -1,4 +1,6 @@
 import React, { useCallback } from 'react';
+
+// Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import {
   $getRoot,

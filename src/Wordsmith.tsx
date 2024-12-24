@@ -1,7 +1,14 @@
+// Lexical.js
 import Lexical from "./Lexical"
+
+// Components
 import Heading from "./components/Headings";
+
+// FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
+// CSS Style Sheets
 import "./css/wordsmith.css"
 import './fonts/Google-Sans.ttf';
 

@@ -1,4 +1,6 @@
 import React from 'react';
+
+// CSS Style Sheet
 import '../css/headings.css';
 
 interface HeadingProps {

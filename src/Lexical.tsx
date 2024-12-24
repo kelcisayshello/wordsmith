@@ -1,27 +1,29 @@
-import "./css/lexical.css";
+// Lexical.js
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
-import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
+import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
-import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
+import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { LinkPlugin } from '@lexical/react/LexicalLinkPlugin';
 import LexicalClickableLinkPlugin from '@lexical/react/LexicalClickableLinkPlugin';
-import { TabIndentationPlugin } from "./plugins/LexicalTabIndentation"
+import { HeadingNode, QuoteNode } from '@lexical/rich-text';
+import { ListPlugin } from '@lexical/react/LexicalListPlugin';
+import { LinkNode, AutoLinkNode } from '@lexical/link';
+import { ListItemNode, ListNode } from '@lexical/list';
+import { CodeHighlightNode, CodeNode } from "@lexical/code";
+import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
+import { HashtagNode } from '@lexical/hashtag';
 import {
     ParagraphNode,
     TextNode,
 } from 'lexical';
+
+// Components
 import WordsmithTheme from './plugins/WordsmithTheme';
-import Toolbar from "./Toolbar";
-import { ListPlugin } from '@lexical/react/LexicalListPlugin';
-import { ListItemNode, ListNode } from '@lexical/list';
-import { HeadingNode, QuoteNode } from '@lexical/rich-text';
-import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
-import { LinkNode, AutoLinkNode } from '@lexical/link';
-import { CodeHighlightNode, CodeNode } from "@lexical/code";
-import { HashtagNode } from '@lexical/hashtag';
+import { TabIndentationPlugin } from "./plugins/LexicalTabIndentation"
 import { ExtendedTextNode } from "./plugins/ExtendedTextNode";
+import Toolbar from "./Toolbar";
 
 const placeholder = 'Please enter some text here . . .';
 
@@ -55,14 +57,6 @@ const editorConfig = {
     theme: WordsmithTheme
 };
 
-const urlRegExp = new RegExp(
-    /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[\w]*))?)/,
-);
-
-export function validateUrl(url: string): boolean {
-    return url === 'https://' || urlRegExp.test(url);
-}
-
 export default function Lexical() {
     return (
         <LexicalComposer initialConfig={editorConfig}>
@@ -84,7 +78,7 @@ export default function Lexical() {
                     <HistoryPlugin />
                     <AutoFocusPlugin />
                     <ListPlugin />
-                    <LinkPlugin validateUrl={validateUrl} />
+                    <LinkPlugin />
                     <LexicalClickableLinkPlugin />
                     <TabIndentationPlugin />
                 </div>

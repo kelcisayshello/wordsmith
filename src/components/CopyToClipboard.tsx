@@ -1,14 +1,20 @@
 import React, { useCallback, useState } from 'react';
+
+// Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ButtonSmall } from './Buttons';
-import { faCopy } from '@fortawesome/free-solid-svg-icons';
-import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 import {
     $getRoot,
     $getSelection,
     $isRangeSelection
 } from 'lexical';
+
+// FontAwesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
+import { faFileLines } from "@fortawesome/free-regular-svg-icons";
+
+// Components
+import { ButtonSmall } from './Buttons';
 import { showNotification } from '../Toolbar';
 
 export const CopySelectionToClipboard_Button: React.FC = () => {
