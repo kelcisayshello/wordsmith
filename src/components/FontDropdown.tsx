@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import "../fonts/Google-Sans.css"
 
 // Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
