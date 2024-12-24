@@ -84,7 +84,7 @@ const ColorPicker_Button = () => {
 
     return (
         <>
-            <ButtonSmall tooltip="Change Font Color" color="blue" style="outline"
+            <ButtonSmall tooltip="Change Font Color" color="vibrant-blue" style="outline"
                 onClick={() => setShowPicker(!showPicker)}
                 content={<FontAwesomeIcon icon={faBrush} color={currentColor}/>}
             />

@@ -14,96 +14,102 @@
 .toolbar select {
     border-radius: 6px;
     font-size: 1rem;
+    user-select: none;
 }
 
 .toolbar button:active,
 .toolbar button.active i,
 .toolbar button.active p {
     transform: translateY(1px);
-
-    background-color: var(--floralwhite);
-    -webkit-box-shadow: inset 0px 0px 5px #d2cec1;
-    -moz-box-shadow: inset 0px 0px 5px #d2cec1;
-    box-shadow: inset 0px 0px 5px #d2cec1;
-
-    border: 2px solid #d2cec1;
 }
 
 .toolbar button {
     transition: 0.08s ease-in-out;
     border: none;
     cursor: pointer;
-    color: #000;
     font-weight: 500;
     padding: 8px 0;
 }
 
-.toolbar button.active {
-    transform: translateY(1px);
+/* -------------------------------------------------------------------------- */
+/*                           Button Styles & Colors                           */
+/* -------------------------------------------------------------------------- */
 
-    background-color: var(--floralwhite);
-    -webkit-box-shadow: inset 0px 0px 5px #d2cec1;
-    -moz-box-shadow: inset 0px 0px 5px #d2cec1;
-    box-shadow: inset 0px 0px 5px #d2cec1;
-
-    border: 2px solid #d2cec1;
+/* Green */
+.green-solid {
+    background-color: var(--mint)!important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--seagreen);
 }
 
-/* button color styles */
+.green-solid:hover {
+    box-shadow: 0 var(--shadow-offset-hover) 0 var(--seagreen);
+}
+
+.green-outline {
+    border: 2px solid var(--mint) !important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--seagreen);
+}
+
+.green-outline:hover {
+    box-shadow: 0 var(--shadow-offset-hover) 0 var(--seagreen);
+}
+
+/* Orange */
 .orange-solid {
-    background-color: var(--orange);
-    box-shadow: 0 var(--shadow-offset) 0 var(--tawny);
+    background-color: var(--orangecrayola)!important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--sinopia);
 }
 
 .orange-solid:hover {
-    box-shadow: 0 var(--shadow-offset-hover) 0 var(--tawny);
+    box-shadow: 0 var(--shadow-offset-hover) 0 var(--sinopia);
 }
 
 .orange-outline {
-    background-color: var(--light-bg);
-    border: 2px solid var(--orange) !important;
-    box-shadow: 0 var(--shadow-offset) 0 var(--tawny);
+    border: 2px solid var(--orangecrayola) !important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--sinopia);
 }
 
 .orange-outline:hover {
-    box-shadow: 0 var(--shadow-offset-hover) 0 var(--tawny);
+    box-shadow: 0 var(--shadow-offset-hover) 0 var(--sinopia);
 }
 
+/* Blue */
 .blue-solid {
-    background-color: var(--columbiablue);
-    box-shadow: 0 var(--shadow-offset) 0 var(--skyblue);
+    background-color: var(--jordyblue)!important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--bluegray);
+    color: var(--davysgray)!important;
 }
 
 .blue-solid:hover {
-    box-shadow: 0 var(--shadow-offset-hover) 0 var(--skyblue);
+    box-shadow: 0 var(--shadow-offset-hover) 0 var(--bluegray);
 }
 
-.blue-outline {
-    background-color: var(--light-bg);
-    border: 2px solid var(--carolinablue) !important;
-    box-shadow: 0 var(--shadow-offset) 0 var(--airforceblue);
+/* Vibrant Blue */
+.vibrant-blue-outline {
+    border: 2px solid var(--azure) !important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--greenblue);
 }
 
-.blue-outline:hover {
-    box-shadow: 0 var(--shadow-offset-hover) 0 var(--airforceblue);
+.vibrant-blue-outline:hover {
+    box-shadow: 0 var(--shadow-offset-hover) 0 var(--greenblue);
 }
 
+/* Red */
 .red-outline {
-    background-color: var(--light-bg);
-    border: 2px solid var(--red) !important;
-    box-shadow: 0 var(--shadow-offset) 0 var(--firebrick);
+    border: 2px solid var(--chilired) !important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--fireenginered);
 }
 
-.grayscale {
+.grayscale-filter {
     filter: grayscale(1);
 }
 
 .font-dropdown {
-    background-color: var(--light-bg);
     border: 2px solid var(--orange) !important;
     box-shadow: 0 var(--shadow-offset) 0 var(--tawny);
 
-    appearance: none; /* removes default arrow */
+    appearance: none;
+    /* removes default arrow */
     -webkit-appearance: none;
     -moz-appearance: none;
     padding-left: 10px;
@@ -115,11 +121,11 @@
     top: 20%;
     left: 53.5%;
     background-color: white;
-    border: 1px solid var(--airforceblue); 
+    border: 1px solid var(--airforceblue);
     padding: 10px;
     border-radius: 6px;
     width: 300px;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -140,13 +146,70 @@
 }
 
 .notification-modal {
-    position: fixed; 
-    top: 2%;  
-    left: 50%;  
+    position: fixed;
+    top: 2%;
+    left: 50%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.7);
     color: var(--floralwhite);
     padding: 5px 10px;
     border-radius: 5px;
     z-index: 10000;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             Light & Dark Themes                            */
+/* -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: light) {
+    .toolbar button:active,
+    .toolbar button.active i,
+    .toolbar button.active p {
+        -webkit-box-shadow: inset 0px 0px 5px #d2cec1;
+        -moz-box-shadow: inset 0px 0px 5px #d2cec1;
+        box-shadow: inset 0px 0px 5px #d2cec1;
+        border: 2px solid #d2cec1;
+    }
+
+    .toolbar button.active {
+        transform: translateY(1px);
+    
+        -webkit-box-shadow: inset 0px 0px 5px #d2cec1;
+        -moz-box-shadow: inset 0px 0px 5px #d2cec1;
+        box-shadow: inset 0px 0px 5px #d2cec1;
+        border: 2px solid #d2cec1;
+    }
+
+    .toolbar button, 
+    .toolbar select {
+        color: var(--davysgray);
+        background-color: var(--floralwhite);
+    }
+}
+
+/* ------------------------------------ - ----------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+    .toolbar button:active,
+    .toolbar button.active i,
+    .toolbar button.active p {
+        -webkit-box-shadow: inset 0px 0px 5px #141414;
+        -moz-box-shadow: inset 0px 0px 5px #141414;
+        box-shadow: inset 0px 0px 5px #141414;
+        border: 2px solid #141414;
+    }
+
+    .toolbar button.active {
+        transform: translateY(1px);
+    
+        -webkit-box-shadow: inset 0px 0px 5px #141414;
+        -moz-box-shadow: inset 0px 0px 5px #141414;
+        box-shadow: inset 0px 0px 5px #141414;
+        border: 2px solid #141414;
+    }
+
+    .toolbar button, 
+    .toolbar select {
+        background-color: var(--jet);
+        color: var(--floralwhite);
+    }
 }

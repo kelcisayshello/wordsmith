@@ -23,7 +23,7 @@ export const UpperCase_Button = () => {
     return (
         <>
             <ButtonSmall tooltip="Uppercase"
-                content={<p>A</p>} color="orange" style="solid"
+                content={<p>A</p>} color="green" style="solid"
                 onClick={handleUppercase}
             />
         </>
@@ -46,7 +46,7 @@ export const Lowercase_Button = () => {
     return (
         <>
             <ButtonSmall tooltip="Lowercase"
-                content={<p>a</p>} color="orange" style="solid"
+                content={<p>a</p>} color="green" style="solid"
                 onClick={handleLowercase}
             />
         </>
@@ -81,7 +81,7 @@ export const Capitalize_Button = () => {
     return (
         <>
             <ButtonSmall tooltip="Capitalize"
-                content={<p>Aa</p>} color="orange" style="outline"
+                content={<p>Aa</p>} color="green" style="outline"
                 onClick={handleCapitalize}
             />
         </>

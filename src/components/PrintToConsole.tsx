@@ -81,7 +81,7 @@ const PrintToConsoleButton: React.FC = () => {
 
     return (
         <ButtonSmall tooltip="Print Selection to Console"
-            id="print_selection_to_console" content={<FontAwesomeIcon icon={faTerminal} />} color="blue" style="outline"
+            id="print_selection_to_console" content={<FontAwesomeIcon icon={faTerminal} />} color="vibrant-blue" style="outline"
             onClick={printSelection}
         />
     );

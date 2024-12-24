@@ -1,3 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* -------------------------------------------------------------------------- */
+/*                                Global Styles                               */
+/* -------------------------------------------------------------------------- */
+:root {
+    --mint: #56B67E;
+    --seagreen: #439666;
+    --jordyblue: #9AC9FE;
+    --bluegray: #6B98CB;
+    --azure: #2087FD;
+    --greenblue: #1E66B9;
+    --orangecrayola: #F96E2A;
+    --sinopia: #C74605;
+    --jet: #2A2A2A;
+    --floralwhite: #FCF8EF;
+    --white: #FFFFFF;
+    --silver: #C9C9C9;
+    --black: #000;
+    --chilired: #E92E1D;
+    --fireenginered: #D22617;
+
+    --red: #DB514F;
+    --firebrick: #B0302E;
+    --aerospaceorange: #FF5300;
+    --orangepeel: #FBA225;
+    --orange: #FA864C;
+    --tawny: #CE5E26;
+    --columbiablue: #C9E6F0;
+    --skyblue: #8FCCE0;
+    --carolinablue: #78B3CE;
+    --airforceblue: #5B899F;
+    --antiflashwhite: #EBEBEB;
+    --davysgray: #494845;
+
+    --shadow-offset: 0.3rem;
+    --shadow-offset-hover: 0.18rem;
+
+    color-scheme: light dark;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    min-width: 320px;
+    min-height: 100vh;
+
+    /* border: 1px solid blue; */
+    font-family: "Funnel Sans", serif;
+    font-optical-sizing: auto;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+footer {
+    text-align: center;
+    opacity: 0.7;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--bluegray)
+}
+
+@font-face {
+    font-family: "Google Sans";
+    src: local("Google Sans"),
+        url("./fonts/Google-Sans.ttf") format("truetype");
+    font-weight: 400;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             Light & Dark Themes                            */
+/* -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: light) {
+    html {
+        background-color: var(--floralwhite);
+    }
+
+    body {
+        background-color: var(--floralwhite);
+        color: var(--davysgray);
+    }
+
+    .content-editable {
+        background-color: var(--white);
+    }
+
+    #viewport-warning {
+        color: var(--davysgray);
+    }
+
+    .placeholder-text {
+        color: var(--davysgray);
+    }
+}
+
+:root[data-theme="light"] body {
+    background-color: var(--floralwhite);
+    color: var(--davysgray);
+}
+
+/* ------------------------------------ - ----------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: var(--jet);
+    }
+
+    body {
+        background-color: var(--jet);
+        color: var(--floralwhite);
+    }
+
+    .content-editable {
+        background-color: var(--silver);
+        color: var(--davysgray)
+    }
+
+    #viewport-warning {
+        color: var(--floralwhite);
+    }
+
+    .placeholder-text {
+        color: var(--black);
+        opacity: 60%;
+    }
+}
+
+:root[data-theme="dark"] body {
+    color: var(--floralwhite);
+    background-color: var(--jet);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              Wordsmith Editor                              */
+/* -------------------------------------------------------------------------- */
+.rich-text-plugin {
+    position: relative;
+}
+
+.content-editable {
+    border: 2px solid #00000016;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 12px 12px;
+
+    height: 42vh;
+    overflow-y: auto;
+
+    outline: none;
+    line-height: 1.5;
+}
+
+.placeholder-text {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    pointer-events: none;
+    user-select: none;
+}
+
 #wordsmith {
     /* border: 1px solid magenta; */
     width: 82vw;
@@ -12,11 +190,28 @@
     width: 82vw;
     max-width: 100%;
     text-align: center;
-    color: #494845;
 }
 
+.app-title-heading {
+    font-size: 3.5rem;
+    line-height: 1.2; 
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.subtitle-heading {
+    font-size: 1rem!important;
+    margin-top: -0.8rem!important;
+    font-weight: 400;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              Responsive Design                             */
+/* -------------------------------------------------------------------------- */
 /* Desktops */
-@media screen and (min-width: 933px) {
+@media screen and (min-width: 582px) and (min-width: 933px) {
     #viewport-warning {
         display: none;
     }
@@ -34,7 +229,7 @@
 }
 
 /* iPhone 14 Pro Max - Portrait */
-@media screen and (max-width: 831px) {
+@media screen and (max-width: 581px) and (max-width: 831px) {
     #wordsmith {
         display: none;
     }

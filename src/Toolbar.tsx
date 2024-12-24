@@ -153,14 +153,14 @@ export default function Toolbar() {
             <RegexAddHyperlink />
             <RemoveHyperlink />
             <ButtonSmall tooltip="Undo"
-                content={<FontAwesomeIcon icon={faArrowRotateRight} flip="horizontal" />} color="orange" style="solid"
+                content={<FontAwesomeIcon icon={faArrowRotateRight} flip="horizontal" />} color="green" style="solid"
                 disabled={!canUndo}
                 onClick={() => {
                     editor.dispatchCommand(UNDO_COMMAND, undefined);
                 }}
             />
             <ButtonSmall tooltip="Redo"
-                content={<FontAwesomeIcon icon={faArrowRotateRight} />} color="orange" style="solid"
+                content={<FontAwesomeIcon icon={faArrowRotateRight} />} color="green" style="solid"
                 disabled={!canRedo}
                 onClick={() => {
                     editor.dispatchCommand(REDO_COMMAND, undefined);

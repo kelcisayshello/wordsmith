@@ -43,7 +43,7 @@ export const RegexAddHyperlink = () => {
                 <div className="notification-modal">{notification}</div>
             )}
             <ButtonSmall tooltip="Add Hyperlink"
-                content={<FontAwesomeIcon icon={ faLink } />} color="blue" style="outline"
+                content={<FontAwesomeIcon icon={ faLink } />} color="vibrant-blue" style="outline"
                 onClick={handleAddRegexHyperlink}
             />
         </>
@@ -66,7 +66,7 @@ export const RemoveHyperlink = () => {
                 <div className="notification-modal">{notification}</div>
             )}
             <ButtonSmall tooltip="Remove Hyperlink"
-                content={<FontAwesomeIcon icon={faLinkSlash} />} color="blue" style="outline"
+                content={<FontAwesomeIcon icon={faLinkSlash} />} color="vibrant-blue" style="outline"
                 onClick={handleRemoveHyperlink}
             />
         </>

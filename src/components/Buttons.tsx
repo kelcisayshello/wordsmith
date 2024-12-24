@@ -1,4 +1,4 @@
-type ButtonColor = 'orange' | 'blue' | 'red';
+type ButtonColor = 'orange' | 'blue' | 'vibrant-blue' | 'red' | 'green';
 type ButtonStyle = 'solid' | 'outline';
 
 interface ButtonProps {

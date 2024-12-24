@@ -45,7 +45,7 @@ export const CopySelectionToClipboard_Button: React.FC = () => {
                 <div className="notification-modal">{notification}</div>
             )}
             <ButtonSmall tooltip="Copy Selection to Clipboard"
-                content={<FontAwesomeIcon icon={faFileLines} />} color="blue" style="outline"
+                content={<FontAwesomeIcon icon={faFileLines} />} color="vibrant-blue" style="outline"
                 onClick={copySelection}
             />
         </>
@@ -82,7 +82,7 @@ export const CopyAllToClipboard_Button: React.FC = () => {
                 <div className="notification-modal">{notification}</div>
             )}
             <ButtonSmall tooltip="Copy All to Clipboard"
-                content={<FontAwesomeIcon icon={faCopy} />} color="blue" style="outline"
+                content={<FontAwesomeIcon icon={faCopy} />} color="vibrant-blue" style="outline"
                 onClick={copyAll}
             />
         </>
