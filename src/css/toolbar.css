@@ -105,8 +105,8 @@
 }
 
 .font-dropdown {
-    border: 2px solid var(--orange) !important;
-    box-shadow: 0 var(--shadow-offset) 0 var(--tawny);
+    border: 2px solid var(--orangecrayola) !important;
+    box-shadow: 0 var(--shadow-offset) 0 var(--sinopia);
 
     appearance: none;
     /* removes default arrow */
