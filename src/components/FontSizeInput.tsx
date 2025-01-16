@@ -2,11 +2,9 @@ import React, { useState, useCallback } from 'react';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { $getSelection, $isRangeSelection } from 'lexical';
 import { $patchStyleText } from '@lexical/selection';
+import { MIN_ALLOWED_FONT_SIZE, MAX_ALLOWED_FONT_SIZE } from '../plugins/ToolbarContext';
 
-const MAX_ALLOWED_FONT_SIZE = 72;
-const MIN_ALLOWED_FONT_SIZE = 8;
-
-function FontSize({ selectionFontSize }: { selectionFontSize: string }) {
+export default function FontSizeInput({ selectionFontSize }: { selectionFontSize: string }) {
     const [editor] = useLexicalComposerContext();
     const [inputValue, setInputValue] = useState(selectionFontSize);
     const [pendingFontSize, setPendingFontSize] = useState<string | null>(null); // Store the pending change
@@ -56,6 +54,4 @@ function FontSize({ selectionFontSize }: { selectionFontSize: string }) {
             onBlur={handleBlur}
         />
     );
-}
-
-export default FontSize;
+};

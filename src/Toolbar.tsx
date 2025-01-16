@@ -32,7 +32,7 @@ import PrintToConsoleButton from "./components/PrintToConsole";
 import PasteFromClipBoard_Button from "./components/PasteFromClipboard";
 import { RegexAddHyperlink, RemoveHyperlink } from './components/Hyperlink';
 import { CopySelectionToClipboard_Button, CopyAllToClipboard_Button } from "./components/CopyToClipboard";
-import FontSize from "./components/FontSizePlugin";
+import FontSizeInput from "./components/FontSizeInput";
 
 // FontAwesome React
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -175,7 +175,7 @@ export default function Toolbar(){
             <ColorPicker_Button />
             <ButtonSmall tooltip="Font Size Display" classString=" font-size-display"
                 content={
-                    <FontSize
+                    <FontSizeInput
                         selectionFontSize={toolbarState.fontSize.slice(0, -2)}
                         // editor={editor}
                     />

@@ -16,35 +16,19 @@ import {
   useState,
 } from 'react';
 
-export const MIN_ALLOWED_FONT_SIZE = 8;
-export const MAX_ALLOWED_FONT_SIZE = 72;
-export const DEFAULT_FONT_SIZE = 15;
+export const MIN_ALLOWED_FONT_SIZE = 12; // 12px = 10.5pt
+export const MAX_ALLOWED_FONT_SIZE = 96; // 96px = 72pt
+export const DEFAULT_FONT_SIZE = 14; //14px = 11pt
 
 const rootTypeToRootName = {
   root: 'Root',
   table: 'Table',
 };
 
-export const blockTypeToBlockName = {
-  bullet: 'Bulleted List',
-  check: 'Check List',
-  code: 'Code Block',
-  h1: 'Heading 1',
-  h2: 'Heading 2',
-  h3: 'Heading 3',
-  h4: 'Heading 4',
-  h5: 'Heading 5',
-  h6: 'Heading 6',
-  number: 'Numbered List',
-  paragraph: 'Normal',
-  quote: 'Quote',
-};
-
 //disable eslint sorting rule for quick reference to toolbar state
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 const INITIAL_TOOLBAR_STATE = {
   bgColor: '#fff',
-  blockType: 'paragraph' as keyof typeof blockTypeToBlockName,
   canRedo: false,
   canUndo: false,
   codeLanguage: '',
