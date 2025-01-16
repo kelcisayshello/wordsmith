@@ -1,4 +1,4 @@
-import { Dispatch, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 // Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
@@ -17,7 +17,6 @@ import {
     UNDO_COMMAND,
     INDENT_CONTENT_COMMAND,
     OUTDENT_CONTENT_COMMAND,
-    LexicalEditor
 } from 'lexical';
 
 import { useToolbarState } from './plugins/ToolbarContext';
@@ -72,7 +71,7 @@ export default function Toolbar(){
                 $getSelectionStyleValueForProperty(selection, 'font-size', '15px'),
               );
         }
-    }, []);
+    }, [updateToolbarState]);
 
     const LowPriority = 1;
 
@@ -171,7 +170,7 @@ export default function Toolbar(){
             <ButtonSmall tooltip="Font Size Display" classString=" font-size-display"
                 content={
                     <FontSizeInput
-                        selectionFontSize={toolbarState.fontSizeInputValue.slice(0, -2)}
+                        selectionFontSize={toolbarState.fontSizeInputValue.replace(/\D/g, '')}
                     />
                 } color="red" style="outline"
             />
