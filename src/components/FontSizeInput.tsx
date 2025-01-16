@@ -23,20 +23,25 @@ export default function FontSizeInput({ selectionFontSize }: { selectionFontSize
 
   const updateFontSizeByInputValue = useCallback(
     (inputValueNumber: number) => {
-      let updatedFontSize = inputValueNumber;
+      let font_PT = inputValueNumber;
       if (inputValueNumber > MAX_ALLOWED_FONT_SIZE) {
-        updatedFontSize = MAX_ALLOWED_FONT_SIZE;
+        font_PT = MAX_ALLOWED_FONT_SIZE;
       } else if (inputValueNumber < MIN_ALLOWED_FONT_SIZE) {
-        updatedFontSize = MIN_ALLOWED_FONT_SIZE;
+        font_PT = MIN_ALLOWED_FONT_SIZE;
       }
 
-      setInputValue(String(updatedFontSize)); // Update the input value
-      
+      // Convert from pt (input) to px (internal)
+      const font_PX = font_PT * 1.33333;
+      console.log(font_PX)
+      console.log(font_PT)
+
+      setInputValue(String(font_PT)); // Update the input value with pt
+
       editor.update(() => {
         const selection = $getSelection();
         if ($isRangeSelection(selection)) {
           $patchStyleText(selection, {
-            'font-size': `${updatedFontSize}px`,
+            'font-size': `${font_PT}pt`, // Apply pt to editor
           });
         }
       });
@@ -67,16 +72,15 @@ export default function FontSizeInput({ selectionFontSize }: { selectionFontSize
   );
 
   const handleBlur = useCallback(() => {
-    // Only update if the input has been changed
     if (inputChangeFlag) {
-        const inputValueNumber = Number(inputValue);
-        if (!isNaN(inputValueNumber)){
-            updateFontSizeByInputValue(inputValueNumber);
-        } else {
-            setInputValue(selectionFontSize)
-        }
+      const inputValueNumber = Number(inputValue);
+      if (!isNaN(inputValueNumber)) {
+        updateFontSizeByInputValue(inputValueNumber);
+      } else {
+        // If input is invalid, revert to selectionFontSize in pt
+        setInputValue(selectionFontSize);
+      }
     }
-    
     setInputChangeFlag(false);
   }, [inputChangeFlag, inputValue, updateFontSizeByInputValue, selectionFontSize]);
 

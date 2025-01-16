@@ -19,7 +19,7 @@ import {
     OUTDENT_CONTENT_COMMAND,
 } from 'lexical';
 
-import { useToolbarState } from './plugins/ToolbarContext';
+import { useToolbarState, DEFAULT_FONT_SIZE } from './plugins/ToolbarContext';
 
 // Components
 import { ButtonSpacer, ButtonSmall } from "./components/Buttons";
@@ -60,6 +60,8 @@ export default function Toolbar(){
     const { toolbarState, updateToolbarState } = useToolbarState();
 
     const $updateToolbar = useCallback(() => {
+
+        let default_size = String(DEFAULT_FONT_SIZE) + "pt"
         const selection = $getSelection();
         if ($isRangeSelection(selection)) {
             setIsBold(selection.hasFormat('bold'));
@@ -68,7 +70,7 @@ export default function Toolbar(){
             setIsStrikethrough(selection.hasFormat('strikethrough'));
             updateToolbarState(
                 'fontSize',
-                $getSelectionStyleValueForProperty(selection, 'font-size', '15px'),
+                $getSelectionStyleValueForProperty(selection, 'font-size', default_size),
               );
         }
     }, [updateToolbarState]);

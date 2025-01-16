@@ -16,9 +16,9 @@ import {
   useState,
 } from 'react';
 
-export const MIN_ALLOWED_FONT_SIZE = 9; // pt
-export const MAX_ALLOWED_FONT_SIZE = 72; // pt
-export const DEFAULT_FONT_SIZE = 11;   // pt
+export const MIN_ALLOWED_FONT_SIZE = 10; // pt font, NOT PX
+export const MAX_ALLOWED_FONT_SIZE = 72; // pt font, NOT PX
+export const DEFAULT_FONT_SIZE = 11;   // pt font, NOT PX
 
 const rootTypeToRootName = {
   root: 'Root',
