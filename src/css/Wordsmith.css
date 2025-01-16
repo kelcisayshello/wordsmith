@@ -140,6 +140,7 @@ footer a {
 /* -------------------------------------------------------------------------- */
 .rich-text-plugin {
     position: relative;
+    /* border: 1px solid magenta; */
 }
 
 .content-editable {
@@ -164,9 +165,9 @@ footer a {
 }
 
 #wordsmith {
-    /* border: 1px solid magenta; */
+    /* border: 1px solid green; */
     width: 82vw;
-    max-width: 100%;
+    max-width: 82vw;
     height: auto;
     padding: 50px 30px;
     border-radius: 10px;

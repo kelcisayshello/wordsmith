@@ -115,6 +115,10 @@
     padding-left: 10px;
 }
 
+.toolbar .font-size-display {
+    grid-column: span 2;
+}
+
 /* ------------------- Styling for Change Font Color Button ------------------ */
 .color-picker-modal {
     position: absolute;

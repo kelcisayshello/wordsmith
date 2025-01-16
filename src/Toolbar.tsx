@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { ToolbarProvider } from '@lexical/react/LexicalToolbar'; 
 
 // Lexical.js
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
@@ -36,6 +37,8 @@ import { faItalic, faUnderline, faStrikethrough, faListOl, faListUl, faIndent, f
 // CSS Style Sheets
 import "./css/toolbar.css"
 import "./css/textformatting.css"
+import {useToolbarState} from './plugins/ToolbarContext';
+import FontSize from "./components/FontSizePlugin";
 
 export const showNotification = (notification: string, setNotification: React.Dispatch<React.SetStateAction<string | null>>) => {
     setNotification(notification);
@@ -53,6 +56,7 @@ export default function Toolbar() {
     const [isItalic, setIsItalic] = useState(false);
     const [isUnderline, setIsUnderline] = useState(false);
     const [isStrikethrough, setIsStrikethrough] = useState(false);
+    const {toolbarState, updateToolbarState} = useToolbarState();
 
     const $updateToolbar = useCallback(() => {
         const selection = $getSelection();
@@ -152,26 +156,23 @@ export default function Toolbar() {
             />
             <RegexAddHyperlink />
             <RemoveHyperlink />
-            <ButtonSmall tooltip="Undo"
-                content={<FontAwesomeIcon icon={faArrowRotateRight} flip="horizontal" />} color="green" style="solid"
-                disabled={!canUndo}
-                onClick={() => {
-                    editor.dispatchCommand(UNDO_COMMAND, undefined);
-                }}
-            />
-            <ButtonSmall tooltip="Redo"
-                content={<FontAwesomeIcon icon={faArrowRotateRight} />} color="green" style="solid"
-                disabled={!canRedo}
-                onClick={() => {
-                    editor.dispatchCommand(REDO_COMMAND, undefined);
-                }}
-            />
+            <IncreaseFontSize_Button />
+            <DecreaseFontSize_Button />
 
             <ButtonSpacer />
 
-            <IncreaseFontSize_Button />
-            <DecreaseFontSize_Button />
             <ColorPicker_Button />
+            <ButtonSmall tooltip="Font Size Display" classString=" font-size-display"
+                content={
+                    <FontSize
+                        selectionFontSize={toolbarState.fontSize.slice(0, -2)}
+                        editor={editor}
+                    />
+                } color="orange" style="solid"
+                onClick={() => {
+                    editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined);
+                }}
+            />
             <FontDropdown_Select />
             <CopySelectionToClipboard_Button />
             <CopyAllToClipboard_Button />
@@ -216,6 +217,20 @@ export default function Toolbar() {
                 }}
             />
             <PrintToConsoleButton />
+            <ButtonSmall tooltip="Undo"
+                content={<FontAwesomeIcon icon={faArrowRotateRight} flip="horizontal" />} color="green" style="solid"
+                disabled={!canUndo}
+                onClick={() => {
+                    editor.dispatchCommand(UNDO_COMMAND, undefined);
+                }}
+            />
+            <ButtonSmall tooltip="Redo"
+                content={<FontAwesomeIcon icon={faArrowRotateRight} />} color="green" style="solid"
+                disabled={!canRedo}
+                onClick={() => {
+                    editor.dispatchCommand(REDO_COMMAND, undefined);
+                }}
+            />
 
         </div>
     );
