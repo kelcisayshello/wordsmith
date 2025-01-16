@@ -10,7 +10,7 @@ import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 
 // Components
 import { ButtonSmall } from './Buttons';
-import { showNotification } from '../Toolbar';
+import { showNotification } from "../components/Notification"
 
 const PasteFromClipBoard_Button = () => {
   const [editor] = useLexicalComposerContext();

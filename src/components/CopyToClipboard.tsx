@@ -15,7 +15,7 @@ import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 
 // Components
 import { ButtonSmall } from './Buttons';
-import { showNotification } from '../Toolbar';
+import { showNotification } from "../components/Notification"
 
 export const CopySelectionToClipboard_Button: React.FC = () => {
     const [editor] = useLexicalComposerContext();

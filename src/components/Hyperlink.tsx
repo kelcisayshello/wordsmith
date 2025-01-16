@@ -10,7 +10,7 @@ import { faLink, faLinkSlash } from '@fortawesome/free-solid-svg-icons';
 import { ButtonSmall } from './Buttons';
 
 // Components
-import { showNotification } from '../Toolbar';
+import { showNotification } from "../components/Notification"
 
 export const RegexAddHyperlink = () => {
     const [editor] = useLexicalComposerContext();

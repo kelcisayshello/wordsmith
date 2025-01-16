@@ -32,6 +32,7 @@ import PasteFromClipBoard_Button from "./components/PasteFromClipboard";
 import { RegexAddHyperlink, RemoveHyperlink } from './components/Hyperlink';
 import { CopySelectionToClipboard_Button, CopyAllToClipboard_Button } from "./components/CopyToClipboard";
 import FontSizeInput from "./components/FontSizeInput";
+import { showNotification } from "./components/Notification"
 
 // FontAwesome React
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,12 +42,12 @@ import { faItalic, faUnderline, faStrikethrough, faListOl, faListUl, faIndent, f
 import "./css/toolbar.css"
 import "./css/textformatting.css"
 
-export const showNotification = (notification: string, setNotification: React.Dispatch<React.SetStateAction<string | null>>) => {
-    setNotification(notification);
-    setTimeout(() => {
-        setNotification(null);
-    }, 3000); // 3 seconds
-};
+// export const showNotification = (notification: string, setNotification: React.Dispatch<React.SetStateAction<string | null>>) => {
+//     setNotification(notification);
+//     setTimeout(() => {
+//         setNotification(null);
+//     }, 3000); // 3 seconds
+// };
 
 export default function Toolbar(){
     const [editor] = useLexicalComposerContext();
