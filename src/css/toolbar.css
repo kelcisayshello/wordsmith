@@ -117,7 +117,33 @@
 
 .toolbar .font-size-display {
     grid-column: span 2;
+    padding: 0;
 }
+
+.font-size-input {
+    /* border: 1px solid magenta; */
+    background: transparent;
+    height: 100%;
+    font-size: 1rem;
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+
+.font-size-input:focus {
+    outline: none;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
 
 /* ------------------- Styling for Change Font Color Button ------------------ */
 .color-picker-modal {

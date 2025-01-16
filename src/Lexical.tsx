@@ -16,7 +16,7 @@ import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
 import { HashtagNode } from '@lexical/hashtag';
 import {
     ParagraphNode,
-    TextNode,
+    TextNode
 } from 'lexical';
 
 // Components
@@ -25,6 +25,7 @@ import { TabIndentationPlugin } from "./plugins/LexicalTabIndentation"
 import { ExtendedTextNode } from "./plugins/ExtendedTextNode";
 import { CustomParagraphNode } from './plugins/CustomParagraphNode';
 import Toolbar from "./Toolbar";
+import { ToolbarContext } from './plugins/ToolbarContext';
 
 const placeholder = 'Please enter some text here . . .';
 
@@ -68,7 +69,9 @@ export default function Lexical() {
     return (
         <LexicalComposer initialConfig={editorConfig}>
             <div className="lexical-container">
-                <Toolbar />
+                <ToolbarContext>
+                    <Toolbar />
+                </ToolbarContext>
                 <div className="rich-text-plugin">
                     <RichTextPlugin
                         contentEditable={
