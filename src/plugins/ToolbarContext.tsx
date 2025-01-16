@@ -16,9 +16,9 @@ import {
   useState,
 } from 'react';
 
-export const MIN_ALLOWED_FONT_SIZE = 12; // 12px = 10.5pt
-export const MAX_ALLOWED_FONT_SIZE = 96; // 96px = 72pt
-export const DEFAULT_FONT_SIZE = 14; //14px = 11pt
+export const MIN_ALLOWED_FONT_SIZE = 9; // pt
+export const MAX_ALLOWED_FONT_SIZE = 72; // pt
+export const DEFAULT_FONT_SIZE = 11;   // pt
 
 const rootTypeToRootName = {
   root: 'Root',
@@ -28,30 +28,10 @@ const rootTypeToRootName = {
 //disable eslint sorting rule for quick reference to toolbar state
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 const INITIAL_TOOLBAR_STATE = {
-  bgColor: '#fff',
-  canRedo: false,
-  canUndo: false,
-  codeLanguage: '',
   elementFormat: 'left' as ElementFormatType,
   fontColor: '#000',
-  fontFamily: 'Arial',
-  // Current font size in px
-  fontSize: `${DEFAULT_FONT_SIZE}px`,
-  // Font size input value - for controlled input
-  fontSizeInputValue: `${DEFAULT_FONT_SIZE}`,
-  isBold: false,
-  isCode: false,
-  isImageCaption: false,
-  isItalic: false,
-  isLink: false,
-  isRTL: false,
-  isStrikethrough: false,
-  isSubscript: false,
-  isSuperscript: false,
-  isUnderline: false,
-  isLowercase: false,
-  isUppercase: false,
-  isCapitalize: false,
+  fontSize: `${DEFAULT_FONT_SIZE * 1.33333}px`, // Convert to px
+  fontSizeInputValue: `${DEFAULT_FONT_SIZE}pt`,  // Keep in pt
   rootType: 'root' as keyof typeof rootTypeToRootName,
 };
 

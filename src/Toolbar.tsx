@@ -83,11 +83,6 @@ export default function Toolbar(){
                     $updateToolbar();
                 });
             }),
-            // activeEditor.registerUpdateListener(({ editorState }) => {
-            //     editorState.read(() => {
-            //       $updateToolbar();
-            //     });
-            //   }),
             editor.registerCommand(
                 SELECTION_CHANGE_COMMAND,
                 (_payload, _newEditor) => {
@@ -176,8 +171,7 @@ export default function Toolbar(){
             <ButtonSmall tooltip="Font Size Display" classString=" font-size-display"
                 content={
                     <FontSizeInput
-                        selectionFontSize={toolbarState.fontSize.slice(0, -2)}
-                        // editor={editor}
+                        selectionFontSize={toolbarState.fontSizeInputValue.slice(0, -2)}
                     />
                 } color="red" style="outline"
             />

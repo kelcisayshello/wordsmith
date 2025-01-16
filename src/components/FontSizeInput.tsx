@@ -30,13 +30,14 @@ export default function FontSizeInput({ selectionFontSize }: { selectionFontSize
             editor.update(() => {
                 const selection = $getSelection();
                 if ($isRangeSelection(selection)) {
-                    const parsedFontSize = parseInt(pendingFontSize);
-                    if (!isNaN(parsedFontSize) && parsedFontSize >= MIN_ALLOWED_FONT_SIZE && parsedFontSize <= MAX_ALLOWED_FONT_SIZE) {
-                        $patchStyleText(selection, { 'font-size': parsedFontSize + 'px' });
+                    const fontSizePt = parseFloat(pendingFontSize);
+                    if (!isNaN(fontSizePt) && fontSizePt >= MIN_ALLOWED_FONT_SIZE && fontSizePt <= MAX_ALLOWED_FONT_SIZE) {
+                        const fontSizePx = fontSizePt * 1.33333; // Direct conversion
+                        $patchStyleText(selection, { 'font-size': `${fontSizePx}px` });
                     }
                 }
             });
-            setPendingFontSize(null); // Clear pending font size
+            setPendingFontSize(null);
         }
     }, [editor, pendingFontSize]);
 
@@ -46,7 +47,7 @@ export default function FontSizeInput({ selectionFontSize }: { selectionFontSize
             title="Font size"
             value={inputValue}
             className="font-size-input"
-            id = "font_size_display"
+            id="font_size_display"
             min={MIN_ALLOWED_FONT_SIZE}
             max={MAX_ALLOWED_FONT_SIZE}
             onChange={handleInputChange}
